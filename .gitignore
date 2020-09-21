@@ -1,0 +1,25 @@
+# Don't track content of these folders
+Old or Unused/
+NLSY/
+Sevpay/
+UIcalc/
+Relevant Literature/
+Job Market Paper/
+Sipp/Old or Unused/
+Sipp/Chetty
+
+# Miscellaneous log files and such
+*.aux
+*.bbl
+*.blg
+*.log
+*.gz
+*.zip
+*.xml
+*.bcf
+*.dta
+*.zip
+.Rhistory
+
+
+

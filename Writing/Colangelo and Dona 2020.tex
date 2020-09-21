@@ -1,0 +1,2929 @@
+\documentclass{article}
+\usepackage[letterpaper]{geometry}
+\usepackage{apacite}
+\usepackage{tikz}
+\usepackage{natbib}
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{setspace}
+\usepackage{arydshln}
+\usepackage{multirow}
+\usepackage{placeins}
+\usepackage{textcomp}
+\usepackage{float,lscape}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\renewcommand{\baselinestretch}{1.5}
+\renewcommand{\thesection}{\Roman{section}} 
+
+
+
+\title{The Effects of Minimum Wages on Unemployment Duration and Re-employment Outcomes}
+
+\author{Kyle Colangelo\\University of California Irvine\\kcolange@uci.edu
+		\and
+		Gonzalo Dona\\University of California Irvine\\gdona@uci.edu}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+	We study how minimum wages affect the outcomes of the unemployed such as unemployment duration, search behavior, and re-employment outcomes. We establish the presence of two effects related to the minimum wage: the effect of the initial minimum wage level at the start of a spell and the effect of changing the minimum wage during a spell. Higher initial minimum wage levels lead unemployed workers to search for work less intensely, but do not affect unemployment duration. Minimum wage increases produce a lengthening of unemployment spells on those unemployed at the time, in addition to lower search effort. (JEL J23, J31, J38, J64)
+	
+	\textbf{keywords} Minimum wage, Unemployed, Unemployment durations, Wages, Working hours
+\end{abstract}
+
+\newpage
+\section{Introduction}
+
+The effect of the minimum wage policy is a very contentious issue that has amassed a very large body of literature. Although a great deal of attention has been given to the impact of the minimum wage on employment, no clear consensus exists yet. One strand of the research, such as \cite{powell2017synthetic}, \cite{meer2016effects}, \cite{thompson2009using}, and \cite{neumark2004minimum}, finds disemployment effects (see \citeauthor{neumark2008minimum}, 2008 for a comprehensive review of previous work). Another parallel strand of research questions the methods that lead to negative results and find no dis-employment effects (\citeauthor{dube2010minimum}, 2010; \citeauthor{allegretto2011minimum}, 2011; \citeauthor{giuliano2013minimum}, 2013; \citeauthor{card1993minimum}, 1993) or even positive effects (\citeauthor{card1992minimum}, 1992). However, despite the great body of research and effort put on the effects of the minimum wage on employment, virtually no effort has been put on evaluating how the policy affects unemployed workers specifically; to our knowledge the only paper that asks this question is \cite{pedace2011impact}, looking only at how the policy impacts unemployment duration.
+
+We assert that studying the unemployed more comprehensively can give us new insights into the effect of minimum wage policies. Rather than focusing exclusively on unemployment duration, we additionally consider people's search behavior and re-employment outcomes (the trajectories of their wages and hours after re-employment). This makes it possible to determine whether the effect of the minimum wage is short lived (i.e. it only affects workers during unemployment), or long lasting, altering wages and hours' trajectories for individuals many months after the change.
+
+We furthermore believe that studying the unemployed specifically may be particularly insightful because unemployed workers are likely to experience the negative effects of a minimum wage increase more immediately than workers who remain employed. Recent research has suggested that the effects of the minimum wage are felt on employment growth (\citeauthor{meer2016effects}, 2016) and flows (\citeauthor{dube2016minimum}, 2016) rather than immediate disemployment. Under these circumstances, the unemployed are more likely to exhibit any effects sooner and stronger. Moreover, their outcomes should be less affected by sticky prices than those of the employed population (\citeauthor{barattieri2014some}, 2014). 
+
+For our analysis we use a sample of unemployment spells built from the Survey of Income and Program Participation (SIPP) to establish the relationship between minimum wages and various outcomes of unemployed individuals. More precisely, we study the relationship between minimum wages and the following outcomes: unemployment duration, job search intensity, probability of abandoning the search for work, wages and hours immediately following re-employment, and the trajectories of wages and hours in the long-term following re-employment (not conditioning on having a job). Using the individual level panel data provided by the SIPP has the advantage of allowing us to follow individuals over long periods of time, enabling us to track trajectories for more than two years after a spell has ended, to better determine how minimum wages affect employment matching. 
+
+We take advantage of the weekly frequency of the SIPP data to pair it precisely with the state minimum wage data. This allows us to introduce another novelty to our analysis: We separate the initial value of the minimum wage at the start of a spell from any changes that occur during a spell. We are able to determine who suffered within-spell increases of the minimum wage because we have weekly frequency data on everyone. Alternatively we could simply include in our models the initial minimum wage level, ignoring any within-spell changes, but we believe this would be ignoring important information. With previous literature (presented below) showing that these events (minimum wage increases) shock markets and firms importantly, we believe dividing the minimum wage effect into these 2 components can be informative as to the nature of minimum wage effects. We can determine whether the effects are primarily concentrated in the vicinity of a change, or if they linger for a long time after a change. 
+
+Our findings suggest that the minimum wage has a relatively mild impact on the unemployed overall, but also that the distinction between minimum wage initial levels and its within-spell variation is very important. Higher initial levels of the minimum wage induce the unemployed to lower their search intensity, and increase their probability of abandoning their job search on average. Increases of the minimum wage while unemployed are associated with longer spells in addition to significantly larger negative search behavior responses on average. Furthermore, although re-employment outcomes seem largely unaffected by the policy, we still observe a weakly significant negative response in long-term working hours after re-employment for those affected by increases of the minimum wage during their unemployment spell.
+
+The effect of within spell variation of the minimum wage displays important heterogeneity by skill that is absent for initial minimum wage levels. While more educated workers see no change on their unemployment duration when the minimum wage is increased during their search, those that did not finish high school experience a spell that is 21\% longer on average when the minimum wage is increased 10\%. The policy also exhibits significant heterogeneity by sex, with women experiencing shorter spells at higher initial levels of the minimum wage, but also lower starting wages in the short-term.
+
+We find that our results are robust to a number of common critiques. They are robust to the inclusion of division-specific time effects as suggested by \cite{allegretto2011minimum}. Moreover they do not seem to be driven by local policy preferences either. Additionally, we confirm that the bias from longer spells being more likely to experience minimum wage increases while unemployed does not significantly affect our conclusions. Lastly, we also verify that our results for search discouragement are not sensitive to our chosen definition.
+ 
+Comparing our analysis with previous studies we call attention to a number of differences. \cite{pedace2011impact} is the only other paper we are aware of that measures directly the impact of higher minimum wages on unemployed workers. Using a hazard model under four different distributions of the survival function and a sample of unemployed individuals from the Displaced Worker Survey, they study the impact of initial minimum wage levels on unemployment duration. They find an effect that varies along the lines of sex and educational attainment. Specifically, spells become longer for older women in low skill occupations and men that are high school dropouts; while more educated men reduced the length of their unemployment period. However, their analysis focuses exclusively on unemployment duration, and so they cannot conclusively say whether a higher minimum wage is beneficial or not for less educated women or more educated men, as longer spells are not necessarily a bad thing (they can be good if they lead to better wages for example). Additionally, our analysis reveals the existence of two different effects acting on the unemployed that are not distinguished by \citeauthor{pedace2011impact}. Summing these two effects makes the interpretation of their results more difficult and may contribute to the high heterogeneity they find.
+
+\cite{clemens2019minimum} is one of the most recent and relevant papers that evaluates the impact of the minimum wage using individual level panel data. Furthermore, they too use the SIPP survey in their analysis, albeit only the 2008 panel, and show that employment suffers when minimum wages are higher. However, they do not concentrate on the impact of higher minimum wages on the unemployed but rather on workers in general. Furthermore, they focused on a very particular moment in history in which two rare events met: the Great Recession and a 41\% increase of the federal minimum wage. Our analysis seeks to provide policy relevant information in a much wider set of scenarios. 
+
+Previous research that has recognized the need for individual level panel data has typically reached similar conclusions to those of \citeauthor{clemens2019minimum} using other sources. \cite{neumark1995effects} and \cite{abowd1997minimum} find dis-employment effects using the Current Population Survey (CPS), and \cite{currie1993minimum} find dis-employment effects using the National Longitudinal Survey of Youth (NLSY). However, \cite{zavodny2000effect} uses the CPS survey and finds no dis-employment effects for low productivity teenagers compared to other low productivity teens. 
+
+We improve on these analyses with the use of the SIPP survey. The SIPP data have two important advantages over the CPS data: they follow individuals for a longer time period, four years compared to only one; and provide continuous and high frequency data on them for the whole period. Compared to the NLSY the key advantage is that the survey not only follows young individuals but a representative sample of workers of all ages. 
+
+Finally, the high frequency of the SIPP data allowed us to distinguish initial minimum wage levels from its hikes during a spell. We find that the effects from initial levels and changes are in fact different, even in the long term. Previous literature has hinted at this result before, with findings that increases in prices due to a change in the minimum wage occurs shortly after the hike (\citeauthor{aaronson2001price}, 2001; \citeauthor{aaronson2008minimum}, 2008; \citeauthor{basker2016does}, 2016), and that firm exit and entry is accelerated by minimum wage increases (\citeauthor{aaronson2018industry}, 2018). Meanwhile, the critique by \cite{sorkin2015there}, that short-term and long-term effects are typically misinterpreted in the literature, is only valid for horizons significantly longer than ours (inflation has little effect in a window of three years).
+
+The rest of the paper is organized as follows: in Section 2 we describe the data used; in Section 3 we summarize the econometric models used and address their advantages and limitations; in Section 4 we present our findings and our understanding of what they mean; in Section 5 we cover various robustness checks we implemented; finally, in Section 6 we conclude and summarize the most important findings and their implications for the minimum wage policy.
+
+\section{Data}
+
+For this analysis we consider four panels of the Survey of Income and Program Participation (SIPP). By combining the 2001 panel (17,387 spells), 2004 panel (25,175 spells), 2008 panel (26,978 spells), and 2014 panel (12,021 spells) we obtain a total of 81,561 spells for 55,734 individuals. However, we exclude from the analysis 6,489 spells that only last for one week and 11,701 for workers that moved to a different state at any point during the duration of the panel. Therefore, our analyses never consider more than 64,367 spells (996 are both one week long and from `movers') from 45,713 different individuals. In addition to this survey data we use data on state and federal minimum wages, and on monthly state unemployment rates.
+
+Methodological improvements for the 2014 panel of the SIPP allowed for a smaller sample. While the first three panels interviewed individuals 3 times each year, the 2014 panel interviewed participants only once a year. However, we still get weekly information on participants for all the panels, and we find no suggestive evidence that this innovation led to significant reporting issues (for example, the probability a spell is shorter than four weeks is not lower for the 2014 panel).
+
+Using the survey, we define a spell as a period of unemployment that begins when a person first declares to be looking for work and ends when said individual finds a job. Therefore, individuals who cease to be employed are not defined as unemployed unless they declare to be looking for work; furthermore, the unemployment spell will only start once they admit to be interested in working. However, this also means that a spell does not end merely because someone declares not to be looking any longer, even if the search is never resumed within sample (these people may instead be defined as quitting the search).
+
+The monthly data on state minimum wages comes from \cite{vaghul2016historical}. During the time span covered by the SIPP data just described the minimum wage takes values between \$5.15 and \$10.50 and was changed for 233 month-state pairs within sample. Of these, 89 changes come from increases of the federal wage floor in 2007, 2008, and 2009; and almost 90\% occurred either in January (107) or July (96). The average nominal increase was \$0.54, but the largest changes surpassed \$1. 
+
+To study how initial minimum wage levels affect several outcomes of the unemployed, we use a difference-in-difference identification strategy that exploits how each state sets its minimum wage policy in relative independence of the others states. Our analysis considers three key characteristics of an unemployment spell: length, effort (intensity and quitting), and success (re-employment outcomes). We consider four re-employment outcomes: starting wages, starting hours, and unconditional trajectories for wages and hours. Length of unemployment is measured in weeks simply as number of weeks that the unemployment spell lasted. To measure the effort put in job seeking we kept track of whether an individual declared to be in the labor force each week and created an index for the percentage of time (weeks) spent looking. For success we created a binary indicator that takes the value one if the individual did not declare to be looking the last eight weeks of his spell (regardless of whether he found employment at the end), and zero otherwise. Re-employment outcome variables are used as they are found in the sample or in natural logs, with imputations using declared income when hourly wage is not available but income is.
+
+Starting wage and hours after a spell ends is available for most uncensored spells in the sample, and allows us to discern whether the new wage floor is conducive to better or worse matches for the unemployed. We enhance our ability to judge these matches by keeping track of these individuals' longer-term wages and hours. We record their wages and hours in intervals of four weeks after their spell is over, for more than two years (128 weeks). This allows to establish longer term effects of the policy, if there is any. We expect long-term outcomes to give a more complete estimate of the benefit or cost of the policy to unemployed workers. For example, a new minimum wage may mean a higher starting wage right after employment but a worse wage trajectory, trajectories will make that clear to us.
+
+However, it is also important to note that the sample shrinks very fast when we look at these trajectories and this has two important effects. The first, we may be concerned on the selection of those that disappear or remain in the sample. Most of them will be observations that end with the end of the survey itself, that only follows people for four years; we do not expect that these people should differ from other individuals in important ways. However, another group may be people whose spells were short (long), and so we get to observe their wages for longer (shorter) periods, if these people's wages differ importantly, then we may get biased estimates in our regressions. To test this, we did a correlation analysis between starting wage after the unemployment period and unemployment duration, and we found no correlation between these two outcomes, with or without controls. Nevertheless, we did find a correlation between unemployment duration and starting hours after the spell, but the coefficient is noticeably small in magnitude. An increase in 1\% on unemployment duration produces an increase of only 0.05\% in starting hours. An issue that remains is the loss of precision that comes with this important drain in numbers. The analysis of future wages for example, starts with more than 30,000 observations and loses about half by month seven (28 weeks), and even though the reduction stabilizes after this point, it still reaches 10,000 by month sixteen and less than 2,500 by month thirty-two. This is particularly important for analyses of subpopulations, that can be small from the beginning, making for very imprecise trajectories in some cases. We try to focus on the larger trends given this situation, without regarding each individual coefficient with too much importance.
+
+
+The different outcomes we study in this paper are better analyzed using different models and samples for each. For example, the duration analysis can use a larger sample because it can deal with censored data and use all the observations from a spell, so we do not need to exclude spells that are not observed till re-employment. Nevertheless, all analyses exclude workers that move to another state, of which our sample includes 4,879 spells (5.7\% of the sample). Although most of them moved before or after their spell, not while unemployed, working hours and wage trajectories could be affected by including movers in the analysis, and to make results more comparable across outcomes we decided to ignore them completely. Additionally, we ignore 6,381 spells that only last a week. Although including these in the analyses does not compromise our conclusions, our definitions do not deal well with spells of this length. For example, because we do not observe intra-week variation the way we define spells means that search intensity is always one for spells of length one. This may not be an important problem for initial levels of the minimum wage, but it is important for the effect of minimum wage changes, and both analyses should not be done separately. All of the above means that for the duration analysis we consider all spells that last at least two weeks and where the workers remained in the same state throughout the survey. In this case (the duration analysis) we chose to treat spells longer than 52 weeks as censored spells, they enter the analysis but as if we did not observe them beyond 52 weeks. For behavioral outcomes (search intensity and search abandonment) we considered a similar group but ignored censored spells under 50 weeks\footnote{Spells can be censored at any time if it coincides with the end of the survey window.}, reducing the sample by an additional 31,659 spells. Finally, for re-employment outcomes we only consider uncensored spells not longer than a year (52 weeks) with information on next starting wage and hours, which leads to the additional loss of 5,100 spells, about 14\%.
+
+\section{Model}
+
+We identify both the short-term effect of increasing the minimum wage on the currently unemployed as well as longer-term effects on their labor market outcomes. Short term effects are impacts of the policy change on spell length, search intensity, abandoning the search, starting wages and starting hours; and the longer term outcomes that we analyze are the impacts on future wages and working hours for the following two years after the unemployment period. For unemployment duration analysis we use a hazard model that takes better advantage of the data than a linear model. For workers getting discouraged from their search (a binary outcome), we use a binary logit model.  All other outcomes are studied using a linear model.
+
+\subsection{Accelerated Failure Time Model}
+
+To determine the effect of the policy on spell length we use an accelerated failure time (AFT) model. We chose this model over a cox proportional hazard because the proportionality assumption, that requires the hazard ratio to be constant, is not met by the data. Instead we decided on an accelerated failure time (AFT) model under a lognormal distribution because the proportionality tests show that a proportional hazard would underestimate the hazard at low durations and overestimate it for longer spells; a lognormal distribution should fit better such data. With it we can establish how initial levels and increases of the minimum wage reduce or increase the probability that an unemployed worker at time $t$ finds employment at time $t+1$. In our regressions we add several controls as well as the two variables of interest: initial  real minimum wage, to capture the effect of the initial level; and the log difference between initial and actual minimum wage, to capture the effect of changes while unemployed. The hazard model takes the following form:
+
+\begin{align}
+\ln{(T_{iswt})}=\beta\times \ln{(imw_{ist})}+ \delta\times \Delta mw_{ist}+ \gamma X_{iswt} + \lambda_s+\sigma_t + \epsilon_{iswt}
+\end{align}
+
+Where $log(T_{iswt})$ is the $log$ of the failure time (spell length) for individual spell $i$ in state $s$ and week $w$ of month $t$ (identified uniquely for each year), $imw_{i}$ is the initial value of the minimum wage at the start of the spell $i$, and $\Delta mw_{ist}$ is the log difference between the current and initial minimum wage for spell $i$. This model includes state ($\lambda_s$) and month-year ($\sigma_t$) fixed effects, as well as individual covariates ($X_{iswt}$): age and its square, sex, race, number of children under 18 in the household, current unemployment rate (by month by state), educational attainment, and the reason they left their last job.
+
+Traditionally for this literature we would have $\beta$ be our parameter of interest, the impact of the minimum wage level on unemployment duration, and we would implicitly assume that $\delta=0$. However, with minimum wages changing during some unemployment spells but not others, the interpretation of the parameter $\beta$ may be difficult because of the differing effect of these increases, if they have any. Previous research (referred to in the introduction) hints that changes of the minimum wage may in fact have an important short term effect. Therefore we separate initial level of the minimum wage from changes in it during a spell of unemployment, that in the regression accompanies $\delta$. As a result, we get two parameters of interest, $\beta$ and $\delta$. The former informs us of the impact of a higher initial minimum wage on spell duration; and the latter about how these outcomes are impacted when the minimum wage is increased during an unemployment spell.
+
+\subsection{Linear Model}
+
+Most other outcomes we study can be evaluated using a standard linear model. We use this linear model for search intensity, log of starting wages, log of starting work hours, trajectories of wages (attributing a wage zero to those not working), and trajectories of working hours (attributing zero hours to those not working). However, in the case of whether a worker abandoned the search for employment (defined as not looking for employment the last eight weeks observed) we instead use a logistic model, given that the outcome is binary. Nevertheless, the covariates used are very similar to those used in the duration analysis, although in this case we cannot use real time values and instead choose to keep initial values of the covariates. The resulting equation is:
+
+\begin{align}
+y_{ist}=\alpha+\beta\times \ln{(imw_{ist})}+ \delta\times \Delta mw_{st}+ \gamma X_{ist} + \lambda_s+\sigma_t + \epsilon_{ist}
+\end{align}
+
+Where $y_{ist}$ is the outcome of interest (search intensity, future wage, and future hours). Another distinction is made for the analysis of trajectories, in which we include both the initial and current unemployment rate by month by state. On other respects the models are mirroring each other. The logit model is specified mirroring the linear model as well. 
+
+\subsection{Sample Balance - Initial Minimum Wage levels}
+
+A difference-in-difference strategy may be unable to identify the proper effect of initial minimum wage levels if the comparison group is inadequate. We are particularly concerned with the effect a higher minimum wage has on the composition of the unemployed. Research on minimum wages commonly finds some important effect that may lead to a compositional change of the unemployed under different initial minimum wage levels. Such a compositional change of the unemployed could compromise our results, as they might instead arise from comparing two different groups and not be informative of the effects of the policy. The data show that with no controls, at higher initial minimum wage levels the unemployed members of the labor force are more likely to have education beyond high school, and less likely to be in its teenager years. However, this can also be said of time, especially with the Great Recession in the middle of our sample. To limit the effect of time we graphed some of the most important characteristics of the unemployed only for panels 2001 and 2004, which do not include the federal minimum wage increases or the financial crisis, while still encompassing eight years. Figure \ref{fig:bal_trends} shows how education, preponderance of teenagers, and unemployment rate at the beginning of the spell change with different minimum wages, pooled at their closest round number to create this graph. We observe no trend for any of these three characteristics. 
+
+To corroborate what is observed in these graphs we additionally regressed the initial minimum wage levels on these characteristics, adding time and state dummies. The results are reported in table \ref{tab:bal_reg}, that evaluates in each column a different sample, relevant for different outcomes. The lack of correlation between initial minimum wage levels and educational attainment, being a teenager, or the unemployment rate at the beginning of the spell is telling evidence that the unemployed should not be different at different initial levels of the minimum wage.
+
+Even with no evidence that the sample's composition is changing due to different initial minimum wage levels, there can be differences between high and low minimum wage places that entail a problem for a difference-in-difference analysis. \cite{allegretto2011minimum} and \cite{dube2010minimum} make the argument that for any state a proper control state should come from within the same geographical division, because of important differences in labor market dynamics across U.S. census divisions. Consequently, we tested the robustness of our results to including division specific time trends (see section 5). Yet another concern with this approach is that minimum wage changes may be correlated to certain local market conditions. In table \ref{tab:bal_reg} we show that there is no observable correlation between initial minimum wage levels and unemployment rate at the time spells start. We also address this issue in a robustness check that exploits federal minimum wage changes in 2007, 2008, and 2009, which are not driven by local conditions. 
+
+\subsection{Sample Balance - Minimum Wage changes}
+
+For a subset of spells in our sample, a minimum wage change occurred while the worker was looking for employment. We observe 3,116 uncensored spells that experience this occurrence, representing 8.0\% of uncensored spells (that are between two and fifty-two weeks, for non-movers).
+
+We showed above that there is little evidence to suggest that compositional changes are occurring, validating the use of a difference-in-difference model. Further, for minimum wage changes we can argue this is not a concern, because in this case we also compare workers to others that may have started their spell under the same initial minimum wage level.
+
+However, we might be concerned that changing minimum wages leads to other compositional changes in the sample of unemployed. We can deal with states having certain preference for the policy, or macroeconomic conditions being correlated to it, in the same way for changes in minimum wage as we do for initial levels, but other choices are important in this case that did not matter before. Minimum wage changes are typically known in advance and can be anticipated. We may have a problem if individuals or firms adjust in response to a minimum wage change that is about to happen. Table \ref{summ_table} compares four different groups we might be concerned about: those with spell length of one and those that moved to a different state, who we exclude from the analysis; those that do not experience a variation of the minimum wage while unemployed, and those that do. Important to highlight, we only see small differences in average wages, and almost no difference in unemployment rates when spells start. The latter observation being of interest because it contradicts the notion that minimum wage changes may be correlated to macroeconomic conditions, to which we alluded above.
+
+Migration could be a response to changes in the wage floor. When minimum wage is increased in a state, a worker may choose to look for employment in another state as a response. In our sample of uncensored spells 2,823 unemployed workers moved to a different state, with 506 of them moving while unemployed. If the worker left because of the increased minimum wage, the group migrating may be a less (more) productive one than the average. If this is the case, ignoring them will likely produce shorter (longer) spell lengths as a response to the minimum wage hike. However, even though the bias could theoretically go in either direction, we would expect that, since we are talking of a higher minimum wage, the migrating worker who moved \textit{because} of this new wage floor is most likely the less productive one. Further, this worker would be looking specifically for lower minimum wages, in order to improve his chances of getting employed. To understand if this is the reason for these workers to be moving, we studied how the new minimum wage for these individuals related to the wage floor in their home state, and found no evidence supporting this theory. In 128 cases the receiving state had a lower minimum wage, and in 132 cases a higher minimum wage, leaving 239 migrations that resulted in no change in the minimum wage that the individual experienced. Overall, a very balanced situation with even a small bias toward movements to higher minimum wage states, which is not consistent with migration motivated by increases in the wage floor. Nevertheless, they are significantly more likely to experience a minimum wage change than the rest of the population, which led us to decide to discard movers from our analysis, even if the movement did not happen during the spell. Although they are likely not reacting to minimum wage changes, by moving they create a change in minimum wage that is not comparable in nature to the change experienced by other workers.
+
+Another important potential source of selection into or out of the sample comes from personal choices, both by firms and workers. To evaluate whether firms or workers are induced by minimum wage changes to modify their behavior in any way that may impact our sample we investigated spells that started or ended around a minimum wage change. Changes in minimum wages are known in advance by both parties, which makes it possible for either of them to anticipate the increase and modify their behavior in potentially important ways. If firms were to lay-off low productivity workers right before the change in policy for example, our sample of workers affected by the policy change would be unbalanced, and our results likely biased. Workers could make decisions that may unbalance our sample too. In their case, it may lead workers to increase their efforts in order to start a job before the minimum wage is increased, if they believe either that the market will be less dynamic after, or that they will benefit from the increase by finding employment before it happens.
+
+In order to test whether firms or workers were partaking in this type of behaviors we graphed spells starting and ending within five months of a minimum wage increase (figure \ref{fig:splbal}). We only considered changes in January, or July for the years 2007, 2008, and 2009; but overall almost 90\% of all changes in the wage floor. The figures show in green bars the proportion of spells started each month from five months before the wage floor increase to five months after.
+
+Figure \ref{fig:splbeg} show spells that start within the eleven months window. It seems most spells are starting after the policy is changed rather than before. We do not observe any sharp increase of spells in the months prior to the change either, which suggest to us that firms are not anticipating it by laying off workers. Next to it, figure \ref{fig:splend}, similarly graphs spells that ended in the same time frame. In this case there are even less noticeable differences in the bars prior to the minimum wage being changed, that means no evidence that workers are increasing their employment rates in advance of the minimum wage change. 
+
+\section{Results}
+%Preamble
+Our results deliver three main takeaways: (1) minimum wage changes have an important effect of their own on the unemployed compared to initial levels, (2) minimum wages have at best (and mostly) null effects for the unemployed on average, and (3) when we do find negative effects its the least productive workers that are more negatively affected. We organized the discussion of our results in order to show these three takeaways clearly. We start by discussing overall effects and after that delve into heterogenous effects, concentrating on the population that the policy seeks to protect.
+
+\subsection{Overall Effects}
+%introduce table and figure, refresh readers memory on outcomes we are considering
+The most novel part of our analysis is the separation of initial minimum wage levels and changes, which means we allow two different effects on the unemployed. This was necessary in order to properly identify the effect of  minimum wages technically, but it was also warranted by previous literature that has suggested that increases of the minimum wage contribute an important shock to the market. Table \ref{tab:overall} and figure \ref{fig:traj_genresults} shows these effects for the unemployed, for all our outcomes.
+
+A quick look at table \ref{tab:overall} shows that in fact initial minimum wage levels and changes affect the unemployed differently in important ways. First, although the general direction of the effects is the same, the impact of a minimum wage increase on search outcomes is several times stronger than that of initial minimum wage levels. For unemployment duration, search intensity, and probability of discouragement we find coefficients for minimum wage changes that are several times larger than those of initial minimum wage levels (respectively eight, seven, and five times larger). Additionally, minimum wage increases make the unemployment spell longer, but higher initial levels of the minimum wage do not have a significant effect on durations. Second, we find suggestive evidence that minimum wage increases lead to a reduction in working hours over the following two years. However, we also find that the minimum wage has very little effect on re-employment outcomes, short-term and long-term, other than the above mentioned effect on working hours. 
+
+
+
+More specifically, column (1) shows that the minimum wage makes unemployment duration longer, but only when it varies during the unemployment period. The coefficient for $\Delta mw$ implies that increasing the minimum wage by 10\% would make employment the next week 12\% less likely for an unemployed worker on average. Columns (2) and (3) are devoted to the search behavior outcomes, how intensely a worker looked and whether he got discouraged while looking. Both features of the minimum wage show a negative impact on these behaviors, although the effect is several times stronger for minimum wage changes 'pound for pound'. Finally, the last two columns (4) and (5) show how the minimum wage impacts short-term re-employment outcomes for these workers, finding that only working hours at next job are reduced by higher minimum wages and only about 2.5\% on average for a minimum wage difference of 10\%.
+
+We think in particular the effect on unemployment duration is consistent with the notion that increases of the minimum wage act like a shock on the labor market, reducing demand for labor momentarily until the full effects of the new price are well understood and empirically observed. This could explain why unemployment spells are longer when minimum wages are increased during someone's unemployment period but are not so affected when the minimum wage is just higher. Figure \ref{fig:chg_hazdis} displays graphically what this 12\% reduction in probability of finding employment translates to in terms of unemployment numbers. Assuming no more entrance or exit to unemployment other than employment (just to make the numbers as clear as possible), we see that after three months we can have more than 4\% more unemployed workers just because we increased the minimum wage by \$1. In July 2009 for example, when the federal minimum wage was raised seventy cents from \$6.55 to \$7.25 for two thirds of Americans and the unemployment rate was 9.4\% this result would predict that just the minimum wage increase would lead to a unemployment rate 0.21 percentage points higher by the end of October (over 300 thousand more American workers unemployed).
+
+
+We believe this effect originates on a demand shock, so we ran a few tests to see whether people that narrowly missed the minimum wage increases are similarly impacted. If the labor market is shocked by minimum wage increases as we presumed, we might expect that a worker that started looking shortly after a minimum wage change would endure a longer unemployment period as well. Although it is a flawed test, and only considers new unemployment spells, we find that there is a significant positive effect for workers that started looking within two months of the minimum wage increase. At the same time we do not find any significant effect for workers whose unemployment spells ended right before the minimum wage change\footnote{In our testing we `moved' the minimum wage change to assign it to workers in four different groups: spells that ended within a month before of the minimum wage change, and those that started within a month, two months, and three months after a change. We find only a significant effect for the group that lost their job within two months of the change, making us think the effect is short lived as well. However, we are a little surprised there is not a significant effect for workers that started looking within a month after the change, although this could have to do with sample size (30\% smaller than the sample for the second month).}.
+
+However, although higher initial minimum wages do not seem to make unemployment spells longer they do affect unemployed workers' behaviors in the same general direction as minimum wage increases. We observe a negative relationship between initial minimum wages and both search intensity and probability of abandoning the search. An increase in initial minimum wage of 10\% leads to a reduction in intensity of almost 10\% on average from its baseline: a worker that spent three months unemployed will look one full week less on average if the minimum wage is increased by 10\% during his spell. At the same time, a 10 point differential in minimum wages only lowers search intensity by less than 1.5\% on average, equivalent to about a day less of looking for work for a three month spell. We observe the same dynamic reflected on probability of abandoning the search for work, the effect is more than five times stronger for minimum wage changes. The same 10\% increase or differential will lead to a likelihood of quitting the search larger by 2.8 percentage points on average in response to increases, and to 0.5 percentage points in response to a similar differential in minimum wages. This is a very large effect when we consider the sample baseline of 10\% for probability of discouragement.
+
+Our results on search behavior suggest workers search less intensely when the minimum wage is higher, or changed during their period of unemployment. The standard neoclassic theory has no clear cut prediction, as higher minimum wages would elicit opposite responses from the sides of the demand and supply, which in turn would give rise to second and third order reactions of unknown size. A higher price for labor will increase interest from workers in finding employment, and therefore should lead to added effort put in looking for work. At the same time, a higher minimum wage that is binding would reduce work opportunities in a competitive labor market, by inducing a lower labor demand; if workers are able to anticipate this effect, it may lead them to reduce their effort instead of increasing it. Our findings suggest that it is this latter effect that dominates workers' observed response. Indeed, we took advantage of our data on minimum wage changes in figure \ref{fig:search_deltamw} and discovered that workers' search intensity takes a sharp turn when a new minimum wage (higher) comes into effect, which leads us to believe that they expect the market to tighten after the price increase.
+
+However, a tighter labor market with unemployed workers exerting lower search efforts should lead to longer unemployment periods, and we only observe this result for minimum wage increases during the unemployment period, but not for minimum wages' initial levels.... 
+
+Finally, table \ref{tab:overall} presents the results for short-term re-employment outcomes. We see that starting wage at re-employment (column 5) is not significantly affected, not even by higher minimum wages. However, starting hours at the new jobs are reduced by higher minimum wages even though not significantly affected by changes of the minimum wage. A 10\% differential of the initial minimum wage level lead workers to a 2.5\% reduction in working hours on average according to our findings. Overall, considering the low statistical confidence on the coefficient for starting hours for initial minimum wage levels, we see little evidence that the minimum wage has any significant impact on short-term re-employment outcomes.
+
+We do not want to ignore the role of time in our analysis. Starting wages may not be affected but wage trajectory may be improved or injured at the same time. Figure \ref{fig:traj_genresults} shows wages and hours monthly responses to minimum wages for almost three years after the unemployment spell is over. These graphs show that there is no improvement over time for wages or hours either. In terms of initial minimum wage levels, we see a movement to positive coefficients for both wages and hours after two years, but they remain mostly not distinguishable from zero statistically even with 90\% confidence intervals. For minimum wage changes, we see absolutely no significant effect on wages after re-employment, but we do observe that during the following two years working hours seem to display a more persistent negative and statistically significant effect. Although the coefficients include zero on their 90 percent confidence interval more often than not, the effect for some groups of workers, more sensitive to the minimum wage, might reveal a more significant negative effect.
+
+Summarizing, we find that the evidence is strongly against the notion that the average unemployed worker benefits at all from the minimum wage policy. However, we recognize that the minimum wage policy is not meant to impact the average worker, but rather a subset of workers that are recognized as in need of help vis-a-vis their potential/actual employers. We will now concentrate on those workers that are more likely targeted by the minimum wage policy to see how they are affected by the policy during their unemployment. Nevertheless, we do get some insights that should remain true even for subpopulations. Minimum wage affects the unemployed more through within spell variation than through its initial levels, and it does not show strong persistence over time.
+
+\subsection{Heterogeneity}
+
+As mentioned, the minimum wage policy is not in place to help the average worker. It is only meant to improve the conditions of the worst-off workers, that may require some assistance to negotiate with their employers without being taken advantage of. To get a better look at the unemployed workers that should matter most for the minimum wage policy we considered several demographic categories. We broke out the sample by education: at most high school compared to more educated unemployed workers; and by sex.
+
+Although historical information on wages should be the ideal way to distinguish low productivity workers, there are issues with how this information is reported. Particularly important is the fact that over half the sample does not include information on past wages, but also important is the fear that the information may be given less accurately than other characteristics that are less likely to be plagued by error from the interviewee or the interviewer. Nevertheless, we used past wage distributions to decide which demographic characteristics separate workers more closely by their productivity. As expected, the group with the lowest average hourly wage is teenagers. Furthermore, their distribution is rather compact (50\% earn between \$7.8 and \$10.4 in our sample) and the distance with adult workers is very significant (adults earn on average \$17.9 hourly, double the teens' rate). However, teenagers are problematic for more important issues in our view. They are much more likely to abandon the labor force in the next few years to continue their education than older workers.
+
+We tested racial disparity by using the four categories in the variable `ERACE' (white only, black only, asian only, residual), but past wage distribution for these groups are significantly closer. Sample averages for each racial group range from \$14.1 to \$18.6, less than a third higher. The difference in average wages between women and men are similarly small, with an average wage of \$14.8 for the former and \$18.5 for the latter group. However, the wage differential is significantly larger for unemployed workers by their educational attainment. Those that did not finish high school average \$11.9 while workers that advanced further average \$18.0, almost as large a difference as that between teenagers and adults. The dispersion for the less educated workers is also relatively small, 75\% earn an hourly wage under \$12.8. For this reason we will concentrate on discussing in this section the results by educational attainment in which the low productivity workers are represented by respondants that did not finish high school.
+
+Table \ref{tab:overall_educ} shows the result of interacting the minimum wage with educational attainment for our five short-term outcomes. We find that heterogeneity is important for three of these outcomes: unemployment duration, search intensity, and working hours at re-employment. According to this table unemployment duration is only affected for the less educated workers, and only through within-spell changed. The probability of finding employment is reduced by 21\% for these workers on average, almost double the finding presented previously. This is a critical consideration to evaluate the policy's impacts as according to the Bureau of Labor Statistics the unemployment rate for high school dropouts in july 2009, when the federal minimum wage was increased by \$0.70 and the overall rate was 9.4\%, was 15.3\% (+63\%). Our graph \ref{fig:chg_hazdis} depicts in the red line the effect for these workers, an increase of \$1 on the minimum wage would lead to an increase in unemployed workers of 8.7\% three months later. Therefore, our estimates suggest by October 2009 the unemployment rate would be 0.38 percentage points higher for high school dropouts as a result of the minimum wage increase in July (assuming they do not leave the labor force).
+
+Columns (2) and (3) of table \ref{tab:overall_educ} reveal a rather surprising result for minimum wage increases when exploring whether heterogeneity by education is important for search behavior. The first rows show response to initial levels of the minimum wage and are not all that surprising. We see that search intensity goes down solely for workers that finished high school, even though neither group suffers from longer unemployment spells. At the same time, working hours at re-employment are also reduced only for the more educated workers, which could be the reason for their small drop in search intensity. Our analysis of longer term re-employment outcomes in figure \ref{fig:lvl_hrsresults} reveals no further heterogeneity or impact of the initial level of the minimum wage either. However, the results are rather surprising for minimum wage changes, the overall importance of the observed heterogeneity seems small, in particular when considering the effect on unemployment duration for each group. These results for minimum wage increases raise the question of how can the two groups behave so similarly when one of them is suffering a lengthening of their unemployment spells and the other one is not. At least partially, the explanation may be found by looking at re-employment outcomes (columns 4 and 5). We see that working hours at re-employment are reduced significantly (both statistically and in terms of sheer size) only for the group with more education. This could make this group less driven to find employment, as they expect a lower benefit of doing so, at the same time high school dropouts could reduce their search efforts as a response of longer spells, even though their hours remain constant. Furthermore, figure \ref{fig:chg_hrsresults} shows some evidence that the working hours response remains heteregeneous for a couple years against workers with high school diploma, which is also consistent with them showing negative behavioral responses.
+
+Summarizing, Table \ref{tab:overall_educ} shows that there is some important heterogeneity on the effects ot the policy on unemployed workers. In particular, it shows that higher initial levels of the minimum wage have almost no effect on the less productive unemployed workers, as proxied by their educational attainment. This analysis suggest that initial minimum wage levels only play a small role in the unemployed workers' search behavior, for those with lower educational attainment. However, it also shows that the impact of minimum wage increases can be substantial. Unemployment rate can be increased significantly through these changes for the less productive workers. Furthermore, the impact on search behaviors is large for all workers and should be an important concern, as many seem to be pushed out of the labor force as a result of these increases.
+
+Another interesting set of results is that by sex. Table \ref{tab:overall_women} shows heterogeneous results for men and women. Initial levels of the minimum wage reduce unemployment duration for women, increase search intensity, increase probability of discouragement for women significantly less than for men, and reduces their wage at re-employment with respect to men (although not significantly from zero). With exception of the last effect on re-employment wages, higher minimum wages seem to benefit women relative to men. However, women fare much worse if their unemployment coincides with a minimum wage increase. Their unemployment will not last longer than that of men on average (although it will be longer than without the minimum wage increase), but they will be significantly more likely to search less intensely, to abandon the search, and lose wages at re-employment (with respect to both men and zero). These effects are also orders of magnitude larger than those associated to initial levels of the minimum wage, the negative effect on wages for example is almost six times larger.
+
+These results by sex are heterogeneous but not in the way results by educational attainment were heterogeneous, which is why they are interesting. Educational attainment by sex shows that in fact women are more likely to have advanced degrees than men, even though their wages are on average lower (\$14.82 to \$18.54). One potential explanation for these differences between men and women is labor force participation and attachment. The results in table \ref{tab:overall_women} show that men are more likely to abandon their search in response to higher minimum wages, maybe this relatively lower attachment to the labor force allowed men to maintain their wages even under different demand conditions. Less competition by men might even help explain why unemployment durations are reduced for women. However, this explanation does not fit well with the findings for minimum wage increases. If the minimum wage is increased while unemployed, female workers become more likely to search less intensely and more likely to abandon the job search than men, not less. We have to keep in mind that when the whole market was shocked, labor demand will momentarily lose dynamism, and the worse conditions may explain why women are more affected by the increase of the minimum wage.
+
+However, the heterogeneity by sex seems to be a short-term phenomenon. We do not see important differences in trajectories for either effect, wages and hours after re-employment seem to behave similarly and look generally unaffected by the minimum wage during the unemployment spell.
+
+\section{Robustness Checks}
+In this section we show that our results are robust to a number of potential criticisms. First, we show through inverse probability weighting that our results are not driven by the fact that individuals with longer spells are more likely to experience a change. Additionally, we show the results seem to be robust to the inclusion of division specific time effects as suggested in \cite{allegretto2011minimum}. We also check that the results are not being driven by federal minimum wage changes which suggests that our results are not driven by local labor market conditions. Lastly, we allow the definition of quitting the search (originally defined as 8 weeks of not looking) to vary to show that our results are not sensitive to the choice of definition.
+
+The first potential issue we decided to address is the possibility of a bias in our results. In particular, we are concerned that the probability of experiencing within spell variation of the minimum wage is increasing in unemployment duration. To address this we used inverse probability weighting conditional on spell length for the untreated group (those that don't experience a change). Since we can not know the counterfactual spell length for those that experienced a change, we can not assign them a propensity score. Because of this limitation we must use the inverse probability weighting estimator for the average treatment effect on the treated (ATT), which only requires that we weight the untreated observations. We calculated propensity scores by panel, estimating the probability of experiencing a minimum wage increase during unemployment given spell duration. A longer spell will have a higher propensity score, which will tend to increase its weight compared to other spells. Scores are assigned assuming that an individual is randomly assigned to a state/time pair within a panel. However, this procedure can only be used with uncensored spells, because we need to know the spell length to attribute propensity scores, which is particularly problematic for search behavior outcomes because we are forced to exclude any spell that does not end on re-employment. Furthermore, because this estimation can make use of about half of the spell sample, we consider these results solely for the purpose of testing the existence of bias in our original findings. The results in table \ref{tab:robust_wips} show that the effect of minimum wage within spell variation remains significant with this weighting methodology. Although the effect suggests a bias does exist (the coefficient is now about 30\% smaller), this procedure identifies the average treatment to the treated (ATT). Since the original methodology finds the average treatement effect (ATE), we cannot be completely sure that the only reason for this difference is bias.
+
+Methods are the object of important discussions within the minimum wage literature. We use a nation-wide approach that has been questioned by many important researchers as unable to account for local heterogeneity. \cite{allegretto2011minimum} show that disemployment findings were not robust to adding census division time fixed effects to the model most commonly used, and that we use in our analysis. Table \ref{tab:robust_div} shows the effect of adding these fixed effects to each outcome's overall effect (column 1 of each table). We see that significant results remain significant and the same sign, and even some non-significant results gain significance for changes of minimum wage within the spell. Other responses to higher initial minimum wage levels more than double with respect to the original estimates and become significantly more imprecise, but remain statistically different from zero and keep their original sign. If including these fixed effects is more correct, it would indicate that the effects of the minimum wage in this case is stronger rather than weaker.
+
+We also explored potential correlation between local labor markets and minimum wage levels or changes and the effect of differences in preferences for the policy that may lead to selection issues. Table \ref{tab:robust_fed} evaluates a potentially different effect from local state increases and general federal changes of the minimum wage. This table shows that federal minimum wage changes do not have a significantly different effect from other minimum wage changes, providing no evidence that this potential issue is causing any bias in our analysis. Therefore, local market conditions are likely not an important concern when interpreting our findings.
+
+Finally, we address the possibility that our arbitrary choice of eight weeks not looking at the end of the observed spell may be driving the results on unemployed workers getting discouraged in their job search. Table \ref{tab:robust_qt10} shows the results of choosing ten weeks instead of eight for initial minimum wage level and for minimum wage variation within the spell. We see in both cases only small changes in the coefficients, that however remain in other ways the same: same sign and overall meaning. We conclude from this that our choice of eight weeks is not indispensable to the finding and can be modified without need to modify our conclusions
+
+We believe these robustness checks confirm that the effects we attribute to initial minimum wage and its within spell variation are causal. We find no evidence to suggest that these effects could be an artifact of the way we analyze the data, instead they seem to confirm that our findings are strong to alternative specifications.
+\FloatBarrier
+
+\section{Conclusions}
+
+We examine how the minimum wage policy impacts the unemployed, both through its initial level at the start of an unemployment spell and its within-spell increases. We find that the impacts on the unemployed are either negative or null. This provides an important criticism to the minimum wage policy even though it cannot discard the possibility of positive effects overall. Our findings suggest that the policy fails in increasing wages for the less productive workers and instead may even be creating income reductions after re-employment (via lower hours).
+
+We find no relation between higher initial minimum wages and unemployment duration or re-employment outcomes overall, but we do find some heterogeneity. Nevertheless, the group most negatively affected by a higher initial minimum wage level is that of more educated workers, who experience a reduction in working hours when the minimum wage is higher. However, all workers modify their search behavior similarly and in a way that would be less conducive to find employment. Search intensity is reduced and the probability of quitting the search for employment is increased when the minimum wage is higher. But our analysis of the long-term trajectory for wages and hours suggest that it has not significant impact on wages in the long term, implying jobs are mostly not lost due to initial minimum wage level differences.
+
+Within spell variation (increases) of the minimum wage has a more pronounced impact on unemployed workers. Furthermore, its effect is heterogeneous against the less productive workers. We see that duration of unemployment is significantly increased only for the less educated workers and that this group's search intensity reduction is marginally larger, although the probability of abandoning the search is not significantly different between the two groups. However, we do see that starting hours at re-employment are reduced only for the more educated workers. The point estimates for search behavior outcomes (search intensity and quitting the search) are many times larger for within-spell variation than for initial minimum wage levels and our analysis of long-term trajectories suggest that this translates to a sustained loss of working hours over the next two years. This effect does not exhibit any strong heterogeneity, suggesting its not different by productivity level. 
+
+Overall, our results are critical of the minimum wage policy, giving minimal evidence of a positive impact to its target population. However, our analysis focuses on a small section of the whole labor market, and an evaluation of the policy needs to consider the whole body of research devoted to it, in which we observe a variety of findings. A natural extension of this paper is to perform a similar analysis for those who are employed, and divide the effect as we have done to see how they are affected by the minimum wage. These results will likely not settle the debate on the minimum wage, but should raise some concerns about the policy. They also raise a concern with how the minimum wage is being increased today, with small changes every year. Should we raise it constantly in small increments? Should we care more about the immediate impact of changing the minimum wage or about the long term impact of its level?. Future research can take advantage of the increasing number of states indexing their minimum wages to inflation to provide a more definite answer to this question.
+
+
+\newpage
+\bibliography{mw_bibl}
+\bibliographystyle{aer}		
+
+
+\begin{table}[!htbp]
+	\centering
+	\caption{Correlation Analysis for Initial Minimum Wage levels}
+	\begin{tabular}{lccc}
+		&Hazard	&Behavioral&Wages/Hours\\
+		&(1)	&(2)	&(3)	\\\hline\hline
+		Education $\leq$ High school&-0.00002&-0.0004&0.0001\\
+		&(0.0006)&(0.001)&(0.001)\\
+		Teenager					&-0.0002&-0.001	&0.0001	\\
+		&(0.0006)&(0.0008)&(0.001)\\
+		Unemployment rate			&-0.858	&-0.783	&-0.745	\\
+		&(0.720)&(0.679)&(0.660)\\
+		Fired						&0.002	&0.002	&0.001\\
+		&(0.001)&(0.002)&(0.002)\\
+		Quit						&0.003**&0.004**&0.002	\\
+		&(0.001)&(0.001)&(0.001)\\\hdashline
+		N							&80,586	&45,754	&33,195	\\\hline\hline
+		\multicolumn{4}{l}{\small{significant at: *** 0.1\% ** 1\% * 5\% $^+$ 10\%}}\\
+	\end{tabular}\\
+	\label{tab:bal_reg}
+\end{table}
+
+\pgfplotstableread{
+	imw	educb	teen	unempb fired
+	5	24.84317	19.12647	4.96982	0.0417476
+	6	25.76443 	19.14339	4.63089	0.0364828
+	7	23.8992		17.95651	5.52776	0.0325003
+	8	25.09491	20.26506 	4.98171	0.0192858
+}\balancemw
+\begin{figure}
+	\centering
+	\caption{Some Trends by Initial Minimum Wage level - Panels 2001-4}
+	\begin{subfigure}{0.3\textwidth}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=5cm,
+		height=4cm,
+		ticklabel style = {font=\scriptsize},
+		ylabel=\scriptsize{\% of spells},
+		yticklabel style={/pgf/number format/fixed},
+		xlabel=\scriptsize{Minimum Wage Level},
+		xticklabel style={/pgf/number format/fixed},
+		axis x line=bottom,
+		axis y line=left,
+		scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		/pgf/number format/1000 sep={},
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		major x tick style = {opacity=0},
+		xtick=data,
+		enlarge x limits=true,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		\addplot [color=blue,thick] table[x=imw,y=educb]\balancemw;
+		\end{axis}
+		\end{tikzpicture}
+		\caption{At most High School} \label{fig:a}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.3\textwidth}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=5cm,
+		height=4cm,
+		ticklabel style = {font=\scriptsize},
+		ylabel=\scriptsize{\% of spells},
+		yticklabel style={/pgf/number format/fixed},
+		xlabel=\scriptsize{Minimum Wage Level},
+		xticklabel style={/pgf/number format/fixed},
+		axis x line=bottom,
+		axis y line=left,
+		scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		/pgf/number format/1000 sep={},
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		major x tick style = {opacity=0},
+		xtick=data,
+		enlarge x limits=true,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		\addplot [color=blue,thick] table[x=imw,y=teen]\balancemw;
+		\end{axis}
+		\end{tikzpicture}
+		
+		\caption{Teenagers} \label{fig:b}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.3\textwidth}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=5cm,
+		height=4cm,
+		ticklabel style = {font=\scriptsize},
+		ylabel=\scriptsize{unemp. rate},
+		yticklabel style={/pgf/number format/fixed},
+		xlabel=\scriptsize{Minimum Wage Level},
+		xticklabel style={/pgf/number format/fixed},
+		axis x line=bottom,
+		axis y line=left,
+		scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		/pgf/number format/1000 sep={},
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		major x tick style = {opacity=0},
+		xtick=data,
+		enlarge x limits=true,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		\addplot [color=blue,thick] table[x=imw,y=unempb]\balancemw;
+		\end{axis}
+		\end{tikzpicture}
+		
+		\caption{Unemployment Rate} \label{fig:c}
+	\end{subfigure}
+	\label{fig:bal_trends}
+\end{figure}
+
+
+\begin{table}[!htbp]
+	\centering
+	\caption{Summary Statistics}
+	\begin{tabular}{rcccccccc}
+		
+		& \multicolumn{ 2}{c}{Spell length=1} & \multicolumn{ 2}{c}{Movers} & \multicolumn{ 2}{c}{$\Delta mw=0$} & \multicolumn{ 2}{c}{$\Delta mw\neq0$} \\
+		
+		&       Mean &       s.d. &       Mean &       s.d. &       Mean &       s.d. &       Mean &       s.d. \\
+		\hline
+		\hline
+		Age &       32.0 &       12.4 &       31.2 &       11.3 &       32.2 &       12.8 &       32.6 &       13.1 \\
+		
+		Women &      0.439 &      0.496 &      0.508 &      0.500 &      0.460 &      0.498 &      0.466 &      0.499 \\
+		
+		0 to HS &      0.197 &      0.398 &      0.150 &      0.358 &      0.229 &      0.420 &      0.237 &      0.425 \\
+		
+		Teenager &      0.153 &      0.360 &      0.116 &      0.321 &      0.174 &      0.379 &      0.180 &      0.385 \\
+		
+		Race: &            &            &            &            &            &            &            &            \\
+		
+		White &      0.778 &          - &      0.751 &          - &      0.734 &          - &      0.703 &          - \\
+		
+		Black &      0.141 &          - &      0.155 &          - &      0.181 &          - &      0.202 &          - \\
+		
+		Asian &      0.029 &          - &      0.033 &          - &      0.033 &          - &      0.033 &          - \\
+		
+		Other &      0.053 &          - &      0.061 &          - &      0.052 &          - &      0.062 &          - \\
+		
+		&            &            &            &            &            &            &            &            \\
+		
+		Unemployment &      0.062 &      0.021 &      0.062 &      0.022 &      0.065 &      0.022 &      0.065 &      0.021 \\
+		
+		Fired &      0.032 &      0.177 &      0.030 &      0.169 &      0.033 &      0.178 &      0.034 &      0.181 \\
+		
+		Search Intensity &          1 &          - &      0.867 &      0.268 &      0.851 &      0.287 &      0.805 &      0.305 \\
+		
+		Spell length &          1 &          - &     16.1 &     19.1 &     15.0 &     11.5 &     25.1 &     13.3 \\
+		
+		$\Delta mw$ &       0.03 &       0.59 &       0.70 &       6.19 &          0 &          - &       8.66 &       6.21 \\\hdashline
+		
+		Observations & \multicolumn{ 2}{c}{6,343} & \multicolumn{ 2}{c}{5,423} & \multicolumn{ 2}{c}{68,576} & \multicolumn{ 2}{c}{6,783} \\
+		\hline
+		Last wage &  \$   11.70  &  \$   13.01  &  \$   15.95  &  \$   53.79  &  \$   13.68  &  \$   22.97  & \$   14.86  &  \$   26.54  \\\hdashline
+		
+		Observations & \multicolumn{ 2}{c}{3,903} & \multicolumn{ 2}{c}{2,661} & \multicolumn{ 2}{c}{27,367} & \multicolumn{ 2}{c}{2,355} \\
+		\hline
+		\hline
+	\end{tabular}
+	\small{}
+	\label{summ_table}
+\end{table}%
+
+\pgfplotstableread{
+	runvar	comparison	affected
+	-5	8.060014	9.039548
+	-4	7.711096	8.788449
+	-3	9.909281	8.913999
+	-2	9.665038	10.608914
+	-1	10.118632	10.357815
+	0	0.000000	0.000000
+	1	10.921144	11.236660
+	2	10.956036	9.102323
+	3	10.607118	8.976773
+	4	10.572226	11.111111
+	5	11.479414	11.864407
+}\begspl
+\pgfplotstableread{
+	runvar	comparison	affected
+	-5	9.102689	9.854706
+	-4	8.390023	9.096652
+	-3	8.649174	9.286166
+	-2	8.066084	9.096652
+	-1	8.973113	9.538850
+	0	0.000000	0.000000
+	1	10.819566	10.170562
+	2	12.050534	10.549589
+	3	10.949142	10.549589
+	4	11.111111	10.360076
+	5	11.888565	11.497157
+}\endspl
+\begin{figure}[!htbp]
+	\centering
+	\caption{Spell started or ended at $\pm$5 months of Minimum Wage changes}
+	\begin{subfigure}{0.5\textwidth}
+		\begin{tikzpicture}
+		\begin{axis}[
+		ybar,
+		width=\textwidth,
+		height=.5\textwidth,
+		bar width=5pt,
+		%enlarge x limits=true,
+		/pgf/number format/1000 sep={},
+		ylabel=\%,
+		xlabel=months to mw change,
+		scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1.35)},anchor=north,legend columns=2,draw=none},
+		xtick=data,
+		major x tick style = {opacity=0},
+		enlarge x limits=true,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [draw=green!80!black,thick] table[x=runvar,y=affected]\begspl;
+		\end{axis}
+		\end{tikzpicture}\\
+		\caption{Spell started}
+		\label{fig:splbeg}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.5\textwidth}
+		\begin{tikzpicture}
+		\begin{axis}[
+		ybar,
+		width=\textwidth,
+		height=.5\textwidth,
+		bar width=5pt,
+		%enlarge x limits=true,
+		/pgf/number format/1000 sep={},
+		xlabel=months to mw change,
+		scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1.35)},anchor=north,legend columns=2,draw=none},
+		xtick=data,
+		major x tick style = {opacity=0},
+		enlarge x limits=true,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [draw=green!80!black,thick] table[x=runvar,y=affected]\endspl;
+		\end{axis}
+		\end{tikzpicture}\\
+		\caption{Spell ended}
+		\label{fig:splend}
+	\end{subfigure}
+	\label{fig:splbal}
+\end{figure}
+\begin{table}
+	\centering
+	\caption{Effect of Minimum Wage on short-term outcomes}
+	{
+		\begin{tabular}{lccccc}
+			&      (1) &  (2) &    (3) & (4)&(5)\\
+			&      Spell &  Intensity &       Quit &  Next Wage & Next Hours \\
+			\hline
+			\hline
+			$\ln(imw)$ &     -0.154 &  -0.117*** &   1.998*** &     0.051 &     -0.247$^+$ \\
+			
+			&    (0.129) &    (0.031) &    (0.469) &    (0.056) &    (0.124) \\
+			
+			$\Delta mw$ &    1.191** &  -0.765*** &   10.62*** &    -0.071 &     -0.414 \\
+			
+			&    (0.368) &    (0.122) &    (1.131) &    (0.088) &    (0.267) \\
+			
+			Intercept &   2.963*** &   0.795*** &  -3.475*** &   1.006*** &   2.751*** \\
+			
+			&    (0.224) &     (0.050) &    (0.922) &    (0.125) &    (0.219) \\\hdashline
+			
+			Observations &    1,481,981 &      45,754 &      45,754 &      33,195 &      30,423 \\
+			\hline
+			\multicolumn{6}{p{.8\textwidth}}{{\footnotesize Significant at: *** 0.1\% ** 1\% * 5\% $^+$ 10\%. For spells we use an accelerated failure time model, for quitting we use a logit model, and for all other outcomes we use a linear model. All models control for state and time (month-year) fixed effects, education level, sex, race, age, age$^2$, unemployment rate, and number of children in the household. We exclude spells greater than 52 weeks, equal to one week, and spells associated with individuals who move. Standard errors are clustered at the state level }}\\
+		\end{tabular}
+	}
+	\label{tab:overall}
+\end{table}
+
+\pgfplotstableread{
+	week	general	lowed
+	0	0	0
+	1	0.80958501	1.430756717
+	2	1.469856463	2.605997633
+	3	2.056491895	3.660162098
+	4	2.656016678	4.744422327
+	5	3.105785726	5.565533671
+	6	3.462848477	6.224514128
+	7	3.752327583	6.765750597
+	8	4.052799463	7.334760287
+	9	4.283571184	7.779428283
+	10	4.448206026	8.104162669
+	11	4.568897901	8.348765062
+	12	4.673945468	8.571895391
+	13	4.750458313	8.742881636
+	14	4.79094842	8.844618212
+	15	4.809131191	8.902870473
+	16	4.812838203	8.936462963
+	17	4.802404256	8.946065814
+	18	4.780853451	8.930345393
+	19	4.7509454	8.898181236
+	20	4.716047198	8.855418919
+	21	4.66754658	8.791561018
+	22	4.612376177	8.712159262
+	23	4.557698177	8.63076405
+	24	4.501429932	8.545259459
+	25	4.437121774	8.447544302
+	26	4.362032193	8.328698829
+	27	4.294197296	8.219230116
+	28	4.227811503	8.110836661
+	29	4.161034471	8.004062801
+	30	4.082502319	7.87647757
+	31	4.014451914	7.762695982
+	32	3.950646231	7.655442453
+	33	3.894970351	7.562561212
+	34	3.83013244	7.454502673
+	35	3.774358281	7.359204123
+	36	3.71954902	7.265548665
+	37	3.671025654	7.182553951
+	38	3.617431967	7.096674174
+	39	3.565064685	7.006203036
+	40	3.516012191	6.921580557
+	41	3.47169195	6.844537083
+	42	3.429704538	6.779416992
+	43	3.392780009	6.717822685
+	44	3.359389509	6.659674259
+	45	3.330799189	6.610477659
+	46	3.30519039	6.571771165
+	47	3.287202497	6.547246807
+	48	3.278630158	6.534266586
+	49	3.273302178	6.527423072
+	50	3.270820047	6.525085061
+	51	3.270593892	6.524889639
+	52	3.270593892	6.524889639
+}\chghazdist
+\begin{figure}[!htbp]
+	\centering
+	\caption{Increase in the Unemployed after a Minimum Wage increase of \$1}
+	\begin{tikzpicture}
+	\begin{axis}[
+	width=\textwidth,
+	height=.5\textwidth,
+	/pgf/number format/1000 sep={},
+	ylabel=\% change of the unemployed,
+	xlabel=weeks after minimum wage increase,
+	scaled y ticks=false,
+	axis x line=bottom,
+	axis y line=left,
+	every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+	legend style={at={(.85,.95)},anchor=north,legend columns=1,draw=none},
+	xtick={1,4,...,52},
+	major x tick style = {opacity=0},
+	enlarge x limits=0,
+	minor x tick num = 0,
+	minor tick length=3ex,
+	]
+	\addplot [draw=green!70!black,thick] table[x=week,y=general]\chghazdist;	\addplot [draw=red!70!black,thick] table[x=week,y=lowed]\chghazdist;
+	%\addplot [draw=red!70!black,thick,dashed] table[x=week,y=federal]\incunemp;
+	\legend{All,Ed$<$HS};
+	\end{axis}
+	\end{tikzpicture}\\
+	\label{fig:chg_hazdis}
+\end{figure}
+
+\pgfplotstableread{
+week	unemp
+-15	0.650574
+-14	0.6524084
+-13	0.6328112
+-12	0.6692007
+-11	0.6726668
+-10	0.6795463
+-9	0.6609333
+-8	0.692336
+-7	0.7068152
+-6	0.7083028
+-5	0.7018992
+-4	0.7080365
+-3	0.7224807
+-2	0.7215636
+-1	0.723884
+1	0.6864884
+2	0.6828359
+3	0.6800906
+4	0.6772306
+5	0.653973
+6	0.6419138
+7	0.639128
+8	0.6384679
+9	0.6219428
+10	0.5991812
+11	0.5919828
+12	0.5870871
+13	0.5791267
+14	0.5437101
+15	0.541265
+}\searchdeltamw
+\begin{figure}[!htbp]
+	\centering
+	\caption{Probability of declaring yourself unemployed given you where unemployed when the minimum wage was raised}
+	\begin{tikzpicture}
+		\begin{axis}[
+			width=\textwidth,
+			height=.5\textwidth,
+			/pgf/number format/1000 sep={},
+			ylabel=probability unemployed,
+			xlabel=weeks before/after minimum wage increase,
+			scaled y ticks=false,
+			axis x line=bottom,
+			axis y line=left,
+			every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+			legend style={at={(.85,.95)},anchor=north,legend columns=1,draw=none},
+			xtick={-15,-13,...,15},
+			major x tick style = {opacity=0},
+			enlarge x limits=0,
+			minor x tick num = 0,
+			minor tick length=3ex,
+			]
+			\addplot [draw=green!70!black,thick] table[x=week,y=unemp]\searchdeltamw;
+			%\addplot [draw=red!70!black,thick,dashed] table[x=week,y=federal]\incunemp;
+			\legend{P(unemployed),Ed$<$HS};
+		\end{axis}
+	\end{tikzpicture}\\
+	\small{This graph was constructed by taking aggregated averages of workers declaring not to be looking for work (0) or to be looking for work (1) $X$ days before or after the minimum wage change that occurred during their unemployment period.}
+	\label{fig:search_deltamw}
+\end{figure}
+
+
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.702	2.04105
+	2	0.189	2.7786
+	3	-0.623	2.29845
+	4	0.806	2.7027
+	5	-0.796	3.03105
+	6	-1.202	3.10035
+	7	-1.941	3.04095
+	8	-1.563	2.97495
+	9	-3.122	2.91225
+	10	-2.139	3.17955
+	11	-1.272	3.37755
+	12	-0.658	2.60205
+	13	-1.999	2.6928
+	14	-1.915	3.0327
+	15	-1.346	3.2406
+	16	2.791	5.40375
+	17	-2.514	6.43005
+	18	-3.352	6.49935
+	19	-1.273	6.9795
+	20	0.0231	8.00415
+	21	4.964	6.53895
+	22	2.518	7.10655
+	23	7.593	7.0653
+	24	5.427	6.1347
+	25	4.478	6.2502
+	26	5.429	6.5835
+	27	7.734	6.65775
+	28	3.329	6.68085
+	29	7.577	7.3128
+	30	3.842	6.44985
+	31	2.569	7.8342
+	32	7.224	7.88535
+	%33	3.807	10.7151
+	%34	-2.822	8.9496
+	%35	2.594	11.39655
+	%36	1.979	13.8336
+	
+	%33	3.367	10.1145
+	%34	-2.203	8.44965
+	%35	2.878	11.1639
+	%36	2.86	13.3848
+}\lvlwageall
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.1697	0.22737
+	2	-0.05854	0.230175
+	3	-0.07868	0.224565
+	4	0.04809	0.24585
+	5	0.1011	0.289245
+	6	-0.1441	0.234135
+	7	-0.2019	0.299805
+	8	-0.1397	0.322905
+	9	-0.2106	0.362175
+	10	0.05813	0.469425
+	11	0.07879	0.46365
+	12	0.1342	0.4257
+	13	0.02679	0.321585
+	14	-0.1048	0.30855
+	15	-0.1121	0.257235
+	16	-0.02092	0.33858
+	17	0.00782	0.392205
+	18	-0.07817	0.47421
+	19	0.1307	0.546645
+	20	-0.2236	0.478995
+	21	-0.1939	0.537075
+	22	-0.1222	0.55803
+	23	0.1907	0.58476
+	24	0.4063	0.446985
+	25	0.6099	0.592845
+	26	0.4287	0.50094
+	27	0.256	0.46002
+	28	0.1722	0.477675
+	29	0.5386	0.564795
+	30	0.5919	0.59598
+	31	0.5339	0.587235
+	32	0.3736	0.55935
+	%33	0.2589	0.680625
+	%34	0.3902	0.87417
+	%35	-0.1978	1.05072
+	%36	-0.2698	0.98571
+	
+}\lvlhrsall
+\pgfplotstableread{
+	month	coef	ci90
+	1	-1.151	3.1581
+	2	-1.631	4.78665
+	3	-2.102	5.09685
+	4	-0.109	4.78995
+	5	4.083	4.6431
+	6	3.067	5.30145
+	7	1.712	4.2603
+	8	-0.965	5.0325
+	9	-1.55	5.31135
+	10	0.75	5.02425
+	11	-1.298	6.29805
+	12	-3.442	5.94
+	13	-2.258	5.84925
+	14	0.919	8.0157
+	15	4.268	7.15275
+	16	2.853	5.7354
+	17	-3.686	7.42005
+	18	-9.127	12.2628
+	19	-2.684	16.2954
+	20	-5.564	10.73325
+	21	-1.96	7.78305
+	22	-6.681	12.2265
+	23	-1.905	14.59095
+	24	-0.758	14.35995
+	25	2.71	12.5796
+	26	2.247	14.1339
+	27	-0.282	14.6685
+	28	2.168	12.5466
+	29	2.685	14.3154
+	30	8.219	10.78935
+	31	9.686	16.32015
+	32	7.703	15.9522
+	33	-6.51	15.41265
+	34	-5.808	17.6055
+	35	-2.887	17.853
+	36	10.95	18.084
+	
+}\chgwageall
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.6476	0.325875
+	2	-0.4302	0.350295
+	3	-0.5449	0.463155
+	4	-0.393	0.469755
+	5	-0.2309	0.46926
+	6	-0.36	0.40326
+	7	-0.3234	0.55836
+	8	-0.4161	0.70488
+	9	-0.6216	0.54087
+	10	-0.538	0.451935
+	11	-0.8146	0.45606
+	12	-0.2089	0.412005
+	13	-0.485	0.55308
+	14	-0.8084	0.62271
+	15	-0.5247	0.531795
+	16	-0.2293	0.68442
+	17	-0.1858	0.78639
+	18	-0.313	0.6501
+	19	-0.9097	0.844635
+	20	-0.8117	0.770715
+	21	-0.323	0.86031
+	22	-1.01	0.678645
+	23	-0.7086	0.80322
+	24	-0.2285	0.771045
+	25	-0.1569	0.91542
+	26	-0.4522	0.949905
+	27	-0.6541	0.94941
+	28	-0.3047	1.11375
+	29	0.5154	1.283205
+	30	1.102	1.229415
+	31	0.4711	1.39656
+	32	0.8948	1.288485
+	33	0.4041	1.549845
+	34	0.9256	1.38237
+	35	-0.137	1.64967
+	36	1.436	1.7787
+	
+}\chghrsall
+
+
+\begin{figure}[!htbp]
+	\centering
+	\caption{Overall effects on Wages and Hours}
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Levels on wage}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ylabel=\textcent,
+		xlabel= Months,
+		ymax=17,
+		ymin=-12,
+		xmax=32.2,
+		xmin=-.1,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [color=blue,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\lvlwageall;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:lvl_wageall}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Levels on Hours}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ylabel=Hours,
+		xlabel= Months,
+		ymin=-1,
+		ymax=1.2,
+		xmin=-.1,
+		xmax=32.2,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [color=red,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\lvlhrsall;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:lvl_hrsall}
+	\end{subfigure}\\
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Changes on wage}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ylabel=\textcent,
+		xlabel= Months,
+		xmin=-.1,
+		xmax=32.2,
+		ymin=-30,
+		ymax=30,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		\addplot [color=blue,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\chgwageall;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:chg_wageall}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Changes on hours}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ylabel=Hours,
+		xlabel= Months,
+		xmin=-.,
+		xmax=32.2,
+		ymin=-2,
+		ymax=3,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=true,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [color=red,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\chghrsall;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:chg_hrsall}
+	\end{subfigure}\\
+	\small{All graphs include 90\% confidence intervals around the estimated coefficients.}
+	\label{fig:traj_genresults}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Effect of Minimum Wage on various outcomes (Education)}
+	{
+		\begin{tabular}{lccccc}
+			&      (1) &  (2) &    (3) & (4)&(5)\\
+			&      Spell &  Intensity &       Quit &  Next Wage & Next Hours \\
+			\hline
+			\hline
+			$\ln(imw)$ &     -0.120 &  -0.116*** &   1.850*** &     0.0519 &    -0.292* \\
+			
+			&     (0.140) &    (0.031) &    (0.466) &    (0.058) &    (0.126) \\
+			
+			$\ln(imw)\times < HS$ &     -0.145 &    0.0399*** &     0.167 &    -0.0143 &    0.236** \\
+			
+			&     (0.110) &    (0.019) &    (0.269) &    (0.053) &    (0.077) \\
+			
+			$\Delta mw$	 &      0.738 &  -0.699*** &   10.61*** &   -0.0781 &    -0.613* \\
+			
+			&    (0.408) &    (0.112) &    (1.093) &    (0.103) &    (0.239) \\
+			
+			$\Delta mw\times < HS$ &    2.104** &     -0.134* &     -1.282 &   -0.009 &     1.070* \\
+			
+			&    (0.812) &    (0.156) &    (0.909) &    (0.216) &    (0.457) \\
+			
+			Intercept &   3.158*** &   0.645*** &   -2.435** &   1.054*** &   2.848*** \\
+			
+			&    (0.261) &    (0.054) &    (0.926) &    (0.125) &    (0.212) \\\hdashline
+			
+			Observations &    1,481,981 &      45,754 &      45,754 &      33,195 &      30,423 \\
+			\hline
+			\multicolumn{6}{p{.8\textwidth}}{{\footnotesize Significant at: *** 0.1\% ** 1\% * 5\% $^+$ 10\%. For spells we use an accelerated failure time model, for quitting we use a logit model, and for all other outcomes we use a linear model. All models control for state and time (month-year) fixed effects, education level, sex, race, age, age$^2$, unemployment rate, and number of children in the household. We exclude spells greater than 52 weeks, equal to one week, and spells associated with individuals who move. Standard errors are clustered at the state level }}\\
+		\end{tabular}
+	}
+	\label{tab:overall_educ}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{Effect of Minimum Wage on various outcomes (Women)}
+	{
+		\begin{tabular}{lccccc}
+			&      (1) &  (2) &    (3) & (4)&(5)\\
+			&      Spell &  Intensity &       Quit &  Next Wage & Next Hours \\
+			\hline
+			\hline
+			$\ln(imw)$ &     -0.0243 &  -0.144*** &   2.334*** &     0.0697 &    -0.188 \\
+			
+			&     (0.135) &    (0.033) &    (0.477) &    (0.054) &    (0.135) \\
+			
+			$\ln(imw)\times Women$ &     -0.274** &    0.0562*** &     -0.628** &    -0.0909** &    0.124 \\
+			
+			&     (0.105) &    (0.012) &    (0.222) &    (0.029) &    (0.072) \\
+			
+			$\Delta mw$ &      1.262* &  -0.656*** &   9,528*** &    0.170 &    -0.377 \\
+			
+			&    (0.524) &    (0.090) &    (1.048) &    (0.130) &    (0.269) \\
+			
+			$\Delta mw\times Women$ &    -0.158 &     -0.240* &     2.315* &   -0.537** &     -0.0858 \\
+			
+			&    (0.608) &    (0.114) &    (1.169) &    (0.197) &    (0.358) \\
+			
+			Intercept &   2.726*** &   0.842*** &   -4.038*** &   1.082*** &   2.643*** \\
+			
+			&    (0.257) &    (0.052) &    (0.930) &    (0.127) &    (0.220) \\\hdashline
+			
+			Observations &    1,481,981 &      45,754 &      45,754 &      33,195 &      30,423 \\
+			\hline
+			\multicolumn{6}{p{.85\textwidth}}{{\footnotesize Significant at: *** 0.1\% ** 1\% * 5\% $^+$ 10\%. For spells we use an accelerated failure time model, for quitting we use a logit model, and for all other outcomes we use a linear model. All models control for state and time (month-year) fixed effects, education level, sex, race, age, age$^2$, unemployment rate, and number of children in the household. We exclude spells greater than 52 weeks, equal to one week, and spells associated with individuals who move. Standard errors are clustered at the state level }}\\
+		\end{tabular}
+	}
+	\label{tab:overall_women}
+\end{table}	
+
+
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.609	2.18295
+	2	0.201	2.86275
+	3	-0.567	2.3265
+	4	0.447	2.7291
+	5	-1.294	3.01455
+	6	-1.664	3.23565
+	7	-2.153	3.0162
+	8	-1.841	2.8281
+	9	-3.395	2.79345
+	10	-2.285	3.1416
+	11	-1.593	3.35445
+	12	-0.74	2.5377
+	13	-2.112	2.6565
+	14	-1.995	3.18615
+	15	-1.488	3.333
+	16	2.87	5.51595
+	17	-2.567	6.58185
+	18	-3.222	6.4053
+	19	-1.341	6.9762
+	20	-0.0541	8.1378
+	21	5.15	6.78645
+	22	2.648	7.50255
+	23	8.054	7.35075
+	24	6.008	6.47625
+	25	4.806	6.52905
+	26	6.158	6.7485
+	27	7.891	6.67425
+	28	3.032	6.71385
+	29	7.434	7.25505
+	30	3.395	6.402
+	31	2.464	7.97115
+	32	7.581	7.9794
+}\lvlwagehighed
+\pgfplotstableread{
+	month	coef	ci90
+	1	-1.166587	1.8685227
+	2	0.0950449	2.7930276
+	3	-0.9420902	2.81503365
+	4	2.305929	3.02826315
+	5	1.134892	3.66182025
+	6	0.5053074	3.1450353
+	7	-1.177523	3.6304752
+	8	-0.5872482	3.8845257
+	9	-2.104565	3.6790875
+	10	-1.611977	3.5587926
+	11	-0.0263123	3.6014385
+	12	-0.3541857	3.0096726
+	13	-1.513442	3.21276615
+	14	-1.458694	2.99204235
+	15	-0.7657586	3.5842125
+	16	2.36483	5.41291905
+	17	-2.548984	6.26662245
+	18	-3.928319	6.99833475
+	19	-0.8818994	7.222347
+	20	0.3143727	7.78113435
+	21	3.979283	5.9339808
+	22	1.739345	5.97134835
+	23	5.331658	6.2089203
+	24	2.590509	5.0506434
+	25	2.9221	5.49680835
+	26	1.93205	6.37031835
+	27	6.907961	7.0359531
+	28	4.35943	6.5587137
+	29	8.432829	7.74979425
+	30	5.647795	7.36829775
+	31	2.662739	8.04457995
+}\lvlwagelowed
+\pgfplotstableread{
+	month	coef	ci90
+	1	-1.164789	1.82192835
+	2	0.1232479	2.62743195
+	3	-0.5576521	2.5190484
+	4	1.635284	2.79094365
+	5	0.3544003	3.44083245
+	6	0.1794118	3.08717145
+	7	-0.9412567	3.6731607
+	8	0.0154716	4.40734965
+	9	-1.728285	3.91745145
+	10	-1.533364	3.70279635
+	11	-0.6335653	3.75848385
+	12	-0.1513907	3.39681375
+	13	-1.436931	3.1836354
+	14	-1.749224	2.93852955
+	15	-1.888096	3.2160183
+	16	1.742534	5.14914675
+	17	-3.59701	5.94102465
+	18	-4.321119	6.6154374
+	19	-1.951365	7.12100235
+	20	-0.5389016	8.25958485
+	21	3.675015	6.60464475
+	22	2.599309	6.80466105
+	23	7.017223	6.74155845
+	24	4.22332	5.74467135
+	25	5.405503	5.59649145
+	26	3.871315	7.03554885
+	27	6.3081	7.4751303
+	28	5.648062	6.52820025
+	29	10.05353	7.45160625
+	30	8.044814	7.3310754
+	31	5.385459	8.93196645
+	32	8.411923	9.9164967
+	%33	5.034863	11.8055652
+	%34	0.1980741	11.7140364
+	%35	4.108789	11.5823268
+	%36	6.367081	15.32880525
+	
+	%33	3.600205	12.49747455
+	%34	-1.188957	12.695892
+	%35	3.480795	11.12544345
+	%36	3.965409	14.1932967
+}\lvlwageteens
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.626	2.12685
+	2	0.174	2.8347
+	3	-0.668	2.3133
+	4	0.58	2.7291
+	5	-1.096	2.9865
+	6	-1.537	3.1878
+	7	-2.188	2.9799
+	8	-1.919	2.7852
+	9	-3.445	2.772
+	10	-2.295	3.1185
+	11	-1.463	3.3627
+	12	-0.8	2.55585
+	13	-2.135	2.80335
+	14	-1.992	3.2373
+	15	-1.322	3.40395
+	16	2.91	5.6133
+	17	-2.34	6.64455
+	18	-3.248	6.5406
+	19	-1.203	7.0092
+	20	0.0279	7.98435
+	21	5.144	6.5703
+	22	2.414	7.2105
+	23	7.67	7.21215
+	24	5.702	6.3096
+	25	4.37	6.4482
+	26	5.741	6.6759
+	27	8.028	6.62145
+	28	2.798	6.9267
+	29	7.13	7.37715
+	30	2.914	6.4317
+	31	2.015	7.99755
+	32	6.953	7.80945
+	%33	3.786	10.76625
+	%34	-3.356	8.9364
+	%35	2.226	11.73975
+	%36	1.377	13.69335
+	
+}\lvlwageadults
+\pgfplotstableread{
+	month	coef	ci90
+	1	0.0765511	2.3514315
+	2	1.406321	3.07214325
+	3	0.9338553	2.54466465
+	4	2.238797	3.26203515
+	5	0.5233514	3.50093205
+	6	0.6054487	3.3577104
+	7	-0.1604651	3.3996468
+	8	0.2144115	3.79009125
+	9	-1.620018	3.69718305
+	10	-0.7618498	3.8061177
+	11	-0.228282	4.08596925
+	12	0.1536067	3.27760125
+	13	-0.7224486	2.82588075
+	14	-0.8681706	2.97637395
+	15	-0.1595641	3.16964835
+	16	3.860135	5.37258645
+	17	-0.730316	6.6510906
+	18	-2.594068	5.98721475
+	19	-1.13731	6.38556765
+	20	0.1960124	7.14218835
+	21	4.012471	5.9982582
+	22	2.130338	6.39828915
+	23	7.364124	6.49509135
+	24	4.913928	5.7348126
+	25	3.981615	5.84854875
+	26	4.879099	6.2127615
+	27	6.403945	6.82507155
+	28	1.501638	6.69665865
+	29	5.646571	7.26490215
+	30	3.806067	7.25155035
+	31	2.612416	9.04379025
+	32	7.28674	8.11359615
+}\lvlwagewmn
+\pgfplotstableread{
+	month	coef	ci90
+	1	-1.401	1.89255
+	2	-0.856	2.5905
+	3	-1.954	2.1648
+	4	-0.494	2.3562
+	5	-1.933	2.75385
+	6	-2.737	3.0426
+	7	-3.543	2.95185
+	8	-3.112	2.47005
+	9	-4.387	2.52285
+	10	-3.408	2.82975
+	11	-2.24	2.8644
+	12	-1.4	2.24565
+	13	-3.068	2.64495
+	14	-2.889	3.2637
+	15	-2.447	3.70095
+	16	1.687	5.71395
+	17	-4.125	6.4878
+	18	-3.856	7.0752
+	19	-1.378	7.6032
+	20	-0.0873	8.8836
+	21	5.799	7.3755
+	22	2.884	7.94805
+	23	7.792	7.7847
+	24	5.928	6.9762
+	25	4.958	6.97785
+	26	5.948	7.27485
+	27	8.709	7.0917
+	28	4.821	7.00425
+	29	9.294	7.55205
+	30	4.186	6.17925
+	31	2.299	7.25835
+	32	7.11	8.08665
+}\lvlwagemen
+\pgfplotstableread{
+	month	coef	ci90
+	1	-3.092203132	3.4299408
+	2	-1.787256454	4.57109895
+	3	-2.674884621	3.9405861
+	4	-1.605250512	3.973794
+	5	-2.793975169	4.0295871
+	6	-2.410800567	4.14927975
+	7	-3.074736266	4.487076
+	8	-3.218447702	4.72832415
+	9	-3.625077326	5.5782408
+	10	-2.054606249	6.77902995
+	11	-1.181371754	7.39131195
+	12	-0.013845821	6.3502593
+	13	2.40050118	8.069523
+	14	1.439489493	7.54911135
+	15	3.554013222	7.7008767
+	16	4.017960609	9.750906
+	17	-3.536522981	7.4431038
+	18	-2.409682984	7.871985
+	19	0.573276798	7.13467425
+	20	4.252849976	9.26807805
+	21	6.541993271	10.68037905
+	22	5.616439635	10.67167365
+	23	4.540828113	12.4499397
+	24	3.012353298	14.59096815
+	25	5.112104321	15.0835905
+	26	4.902712065	12.90619275
+	27	9.969414843	12.1033836
+	28	6.471606957	14.3224554
+	29	10.22306639	14.35627545
+	30	6.247756729	13.6806318
+	31	6.34862014	16.968963
+	32	3.311139226	18.8506065
+	33	2.268568865	24.2509575
+	34	6.99994963	21.560913
+	35	6.79052369	27.6552375
+	36	-10.86249551	39.3673005
+	
+}\lvlwagelwpoor
+\pgfplotstableread{
+	month	coef	ci90
+	1	-1.238793609	3.4299408
+	2	-0.000807756	4.57109895
+	3	-1.69279251	3.9405861
+	4	-2.648516711	3.973794
+	5	-2.65426678	4.0295871
+	6	-2.920033513	4.14927975
+	7	-4.154376248	4.487076
+	8	-5.238019275	4.72832415
+	9	-6.590367228	5.5782408
+	10	-3.001977932	6.77902995
+	11	-2.640456414	7.39131195
+	12	-1.51013094	6.3502593
+	13	-0.039848915	8.069523
+	14	-1.000033926	7.54911135
+	15	1.431107041	7.7008767
+	16	2.464634786	9.750906
+	17	-4.348319659	7.4431038
+	18	-2.290641516	7.871985
+	19	1.897613131	7.13467425
+	20	5.982257971	9.26807805
+	21	10.99860823	10.68037905
+	22	8.556102555	10.67167365
+	23	11.13109605	12.4499397
+	24	10.06060022	14.59096815
+	25	8.99500554	15.0835905
+	26	8.742626088	12.90619275
+	27	11.63764875	12.1033836
+	28	8.055519824	14.3224554
+	29	12.69400353	14.35627545
+	30	7.04301987	13.6806318
+	31	6.94134745	16.968963
+	32	11.71844291	18.8506065
+	33	6.967400147	24.2509575
+	34	6.083991667	21.560913
+	35	8.238861551	27.6552375
+	36	-3.329815951	39.3673005
+	
+}\lvlwagelwrich
+
+\begin{figure}[!htbp]
+	\centering
+	\caption{Effect of a +1\% Minimum wage Level on Wage}
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Education $<$ High school}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ylabel=\textcent,
+		xlabel= Months,
+		ymax=17,
+		ymin=-12,
+		xmax=32.2,
+		xmin=-.1,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		\addplot [color=blue,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\lvlwagelowed;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:lvl_wagelowed}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Education $\geq$ High school}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ymax=17,
+		ymin=-12,
+		xmax=32.2,
+		xmin=-.1,
+		xlabel= Months,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [color=blue,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\lvlwagehighed;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:lvl_wagehighed}
+	\end{subfigure}\\
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Women}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ylabel=\textcent,
+		ymax=17,
+		ymin=-12,
+		xmax=32.2,
+		xmin=-.1,
+		xlabel= Months,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [color=blue,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\lvlwagewmn;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:lvl_wagewmn}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Men}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ymax=17,
+		ymin=-12,
+		xmax=32.2,
+		xmin=-.1,
+		xlabel= Months,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [color=blue,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\lvlwagemen;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:lvl_wagemen}
+	\end{subfigure}\\
+	\small{All graphs include 90\% confidence intervals around the estimated coefficients.}
+	\label{fig:lvl_wageresults}
+\end{figure}
+
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.1902	-0.227535
+	2	-0.0763	-0.2343
+	3	-0.117	-0.22506
+	4	-0.00757	-0.2376
+	5	0.02635	-0.28116
+	6	-0.2173	-0.22968
+	7	-0.2699	-0.286275
+	8	-0.2127	-0.30096
+	9	-0.2964	-0.338745
+	10	-0.06099	-0.43395
+	11	-0.06266	-0.436755
+	12	0.00856	-0.421905
+	13	-0.08558	-0.33099
+	14	-0.1881	-0.326205
+	15	-0.1784	-0.26532
+	16	-0.07364	-0.338745
+	17	-0.04208	-0.392205
+	18	-0.1005	-0.469425
+	19	0.08237	-0.542025
+	20	-0.2739	-0.46926
+	21	-0.2435	-0.538725
+	22	-0.1794	-0.556875
+	23	0.1649	-0.603075
+	24	0.3737	-0.440055
+	25	0.5905	-0.59664
+	26	0.4548	-0.519915
+	27	0.2232	-0.469755
+	28	0.1156	-0.480645
+	29	0.4806	-0.548955
+	30	0.5635	-0.595485
+	31	0.523	-0.605715
+	32	0.3429	-0.54978
+	%33	0.2655	-0.69894
+	%34	0.3918	-0.90156
+	%35	-0.2166	-1.062765
+	%36	-0.3131	-1.001715
+	
+}\lvlhrshighed
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.08875378	0.248235405
+	2	0.005856794	0.23898732
+	3	0.06905185	0.2490411
+	4	0.2875655	0.313708065
+	5	0.3913489	0.328113885
+	6	0.1270227	0.26398317
+	7	0.08324108	0.350307375
+	8	0.1382331	0.40484367
+	9	0.1332433	0.43876668
+	10	0.4997663	0.549911505
+	11	0.608038	0.50217453
+	12	0.5956294	0.418097955
+	13	0.4799078	0.338514495
+	14	0.2504077	0.32081709
+	15	0.1865912	0.30793488
+	16	0.2379948	0.38451402
+	17	0.1789468	0.425948985
+	18	0.006116288	0.508410705
+	19	0.336334	0.61036437
+	20	-0.02377677	0.54185208
+	21	0.007400932	0.56359413
+	22	0.09879864	0.602521755
+	23	0.2818929	0.59288724
+	24	0.5480027	0.579380175
+	25	0.6937974	0.63480417
+	26	0.3144848	0.496945845
+	27	0.4054163	0.467359695
+	28	0.4083136	0.48558807
+	29	0.8832125	0.561368445
+	30	0.7071822	0.661661715
+	31	0.5168505	0.62010663
+	32	0.4287936	0.6910596
+	%33	0.2151369	0.724764645
+	%34	0.3031762	0.805431165
+	%35	-0.1872882	1.0455588
+	%36	-0.0954786	1.01721444
+}\lvlhrslowed
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.09754435	0.227339145
+	2	0.05224585	0.22386012
+	3	0.12526	0.236960625
+	4	0.2876709	0.295940535
+	5	0.3673446	0.338593035
+	6	0.1820683	0.345360675
+	7	0.07116901	0.433181925
+	8	0.1630586	0.450925695
+	9	0.08702614	0.455277075
+	10	0.3112649	0.50384928
+	11	0.270814	0.52157985
+	12	0.2913448	0.433448565
+	13	0.2210537	0.35050686
+	14	0.1054525	0.38970393
+	15	0.103089	0.28730262
+	16	0.1660147	0.39806811
+	17	0.2002135	0.410861715
+	18	0.09001979	0.49992063
+	19	0.3286838	0.569212875
+	20	-0.1549632	0.451368225
+	21	-0.1406232	0.56799567
+	22	-0.1030875	0.667013655
+	23	0.09110036	0.65674422
+	24	0.4996828	0.5267757
+	25	0.7892876	0.651048585
+	26	0.4135539	0.592837905
+	27	0.4344883	0.53001861
+	28	0.551573	0.608457795
+	29	0.8904561	0.728458665
+	30	0.931845	0.656186025
+	31	0.9749232	0.666692895
+	32	0.5638656	0.72498789
+	%33	0.1009717	0.74206737
+	%34	0.3994347	1.04133051
+	%35	-0.02792742	1.3379487
+	%36	-0.2219546	1.296479415
+}\lvlhrsteens
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.1734	0.22803
+	2	-0.07422	0.231495
+	3	-0.1107	0.224565
+	4	0.01387	0.238095
+	5	0.04033	0.28974
+	6	-0.2216	0.224895
+	7	-0.2662	0.276375
+	8	-0.2042	0.303435
+	9	-0.2683	0.35343
+	10	0.00639	0.464475
+	11	0.04269	0.452925
+	12	0.1122	0.42405
+	13	-0.00226	0.321915
+	14	-0.1392	0.30624
+	15	-0.1429	0.26136
+	16	-0.0447	0.333135
+	17	-0.02822	0.39567
+	18	-0.09838	0.47322
+	19	0.09862	0.53823
+	20	-0.2281	0.481635
+	21	-0.1897	0.52833
+	22	-0.1004	0.53625
+	23	0.2455	0.575685
+	24	0.4223	0.437745
+	25	0.6086	0.58938
+	26	0.4408	0.50787
+	27	0.2249	0.47091
+	28	0.08163	0.47454
+	29	0.4661	0.55605
+	30	0.5245	0.61347
+	31	0.4594	0.62205
+	32	0.3548	0.564465
+	%33	0.3297	0.69729
+	%34	0.4671	0.851235
+	%35	-0.1997	1.034055
+	%36	-0.2465	0.97152
+}\lvlhrsadults
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.1232612	0.23204115
+	2	-0.02090023	0.23737164
+	3	0.02847101	0.22968792
+	4	0.1392139	0.25949946
+	5	0.2393237	0.28797351
+	6	-0.01761391	0.24540516
+	7	-0.09013253	0.317591505
+	8	0.000984828	0.327095835
+	9	-0.08201735	0.376646655
+	10	0.2275664	0.471126645
+	11	0.2131559	0.4840374
+	12	0.238881	0.47504721
+	13	0.1233153	0.379280715
+	14	-0.03995487	0.323151675
+	15	-0.01149997	0.231257895
+	16	0.04434997	0.309700545
+	17	0.1142738	0.356549985
+	18	0.0920192	0.45481887
+	19	0.2928721	0.49298667
+	20	-0.08976365	0.449796105
+	21	-0.09496252	0.541162545
+	22	0.000976226	0.558845265
+	23	0.3011424	0.56114487
+	24	0.4663471	0.47723973
+	25	0.6741109	0.570798855
+	26	0.5375642	0.50684568
+	27	0.3178073	0.501123315
+	28	0.2756815	0.505572705
+	29	0.5242937	0.59423892
+	30	0.6343285	0.551578005
+	31	0.547868	0.556563315
+	32	0.3584663	0.533771205
+}\lvlhrswmn
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.2113	0.23727
+	2	-0.09153	0.23496
+	3	-0.1744	0.230835
+	4	-0.03982	0.240075
+	5	-0.01485	0.300795
+	6	-0.2448	0.234795
+	7	-0.2996	0.297
+	8	-0.2679	0.32868
+	9	-0.322	0.35673
+	10	-0.09655	0.47454
+	11	-0.04154	0.454575
+	12	0.04507	0.391215
+	13	-0.05729	0.2937
+	14	-0.1633	0.326535
+	15	-0.2069	0.30789
+	16	-0.08296	0.388575
+	17	-0.07687	0.44154
+	18	-0.1983	0.504735
+	19	0.00716	0.60819
+	20	-0.3212	0.52635
+	21	-0.2752	0.55605
+	22	-0.2221	0.5742
+	23	0.1064	0.614625
+	24	0.3574	0.443685
+	25	0.5695	0.603075
+	26	0.3598	0.50589
+	27	0.2262	0.45738
+	28	0.09505	0.47718
+	29	0.5628	0.563475
+	30	0.5817	0.66033
+	31	0.5314	0.650595
+	32	0.3927	0.628155
+}\lvlhrsmen
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.214492626	0.303533505
+	2	-0.217820675	0.309976755
+	3	-0.068250037	0.299611125
+	4	0.060321507	0.341351175
+	5	-0.005097293	0.42520401
+	6	-0.298348497	0.3432693
+	7	-0.440592895	0.307387245
+	8	-0.372465587	0.40955046
+	9	-0.397603399	0.46446444
+	10	0.05783841	0.58604865
+	11	0.03390351	0.54648429
+	12	0.157360061	0.653808375
+	13	0.215938175	0.596389695
+	14	0.262474949	0.677165115
+	15	0.471478073	0.605975535
+	16	0.367184732	0.55322091
+	17	0.384404455	0.61897638
+	18	0.526540253	0.76314744
+	19	0.751296281	0.808384665
+	20	0.255842299	1.072941705
+	21	0.5316347	1.22714856
+	22	0.517041787	1.00878228
+	23	0.563256753	1.00942842
+	24	0.564499736	0.963273795
+	25	0.502390679	0.90768612
+	26	0.183008102	0.74509149
+	27	-0.213185197	0.8558352
+	28	0.227320074	1.501659885
+	29	0.281809928	1.210214775
+	30	0.244422198	1.06960062
+	31	1.563689108	1.061680455
+	32	1.207856709	1.3739649
+	33	1.832208748	1.9104195
+	34	1.761527011	2.41463475
+	35	1.143003657	3.00872385
+	36	0.961656749	2.34664155
+	
+}\lvlhrslwpoor
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.123062165	0.303533505
+	2	-0.12440619	0.309976755
+	3	-0.043491065	0.299611125
+	4	-0.009102816	0.341351175
+	5	-0.139680286	0.42520401
+	6	-0.464675881	0.3432693
+	7	-0.591048084	0.307387245
+	8	-0.608316496	0.40955046
+	9	-0.534583755	0.46446444
+	10	-0.017025446	0.58604865
+	11	-0.079516555	0.54648429
+	12	0.083794087	0.653808375
+	13	0.175042471	0.596389695
+	14	0.158148329	0.677165115
+	15	0.443321459	0.605975535
+	16	0.417777356	0.55322091
+	17	0.419455554	0.61897638
+	18	0.403448068	0.76314744
+	19	0.560581929	0.808384665
+	20	0.10431243	1.072941705
+	21	0.437228203	1.22714856
+	22	0.37262134	1.00878228
+	23	0.679487519	1.00942842
+	24	0.595640653	0.963273795
+	25	0.505879256	0.90768612
+	26	0.345119435	0.74509149
+	27	-0.331647991	0.8558352
+	28	0.189119337	1.501659885
+	29	0.450865347	1.210214775
+	30	0.469195637	1.06960062
+	31	1.812022837	1.061680455
+	32	1.751314077	1.3739649
+	33	2.340863021	1.9104195
+	34	2.226450078	2.41463475
+	35	1.628676314	3.00872385
+	36	1.191059578	2.34664155
+	
+}\lvlhrslwrich
+
+\begin{figure}[!htbp]
+	\centering
+	\caption{Effect of a +1\% Minimum wage Level on Hours}
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Education $<$ High school}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ylabel=Hours,
+		xlabel= Months,
+		ymin=-1,
+		ymax=1.2,
+		xmin=-.1,
+		xmax=32.2,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [color=red,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\lvlhrslowed;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:lvl_hrslowed}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Education $\geq$ High school}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		xlabel= Months,
+		ymin=-1,
+		ymax=1.2,
+		xmin=-.1,
+		xmax=32.2,
+		scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [color=red,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\lvlhrshighed;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:lvl_hrshighed}
+	\end{subfigure}\\
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Women}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ylabel=Hours,
+		xlabel= Months,
+		ymin=-1,
+		ymax=1.2,
+		xmin=-.1,
+		xmax=32.2,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [color=red,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\lvlhrswmn;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:lvl_hrswmn}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Men}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		xlabel= Months,
+		ymin=-1,
+		ymax=1.2,
+		xmin=-.1,
+		xmax=32.2,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [color=red,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\lvlhrsmen;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:lvl_hrsmem}
+	\end{subfigure}\\
+	\small{All graphs include 90\% confidence intervals around the estimated coefficients.}
+	\label{fig:lvl_hrsresults}
+\end{figure}
+
+
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.2307261	5.00964255
+	2	-0.3798476	5.932608
+	3	0.8684498	8.6486466
+	4	0.929412	7.82536755
+	5	-2.089384	6.45253455
+	6	-2.683909	4.7998203
+	7	-1.83179	6.4491834
+	8	-2.944327	6.55378515
+	9	-3.15032	5.05983555
+	10	-0.9009716	7.26777315
+	11	-5.665278	7.2496677
+	12	-5.067991	9.97882545
+	13	-4.460738	14.3157828
+	14	-17.44552	9.93692865
+	15	-15.10804	11.1027807
+	16	-10.21934	8.9033571
+	17	-18.79357	7.74365955
+	18	-12.48554	9.67129185
+	19	-10.48157	8.04539175
+	20	-9.364509	9.3881766
+	21	-5.923259	9.83781975
+	22	-4.285066	13.44923085
+	23	0.1226782	11.0441133
+	24	0.548338	12.55355145
+	25	2.136683	12.3494514
+	26	0.7407963	13.0788009
+	27	-1.258167	13.7879973
+	28	-8.509785	8.52458145
+	29	1.733306	12.2856756
+	30	-1.260448	13.4387022
+	31	3.439579	14.05438815
+	32	10.80442	23.2293765
+	33	16.41413	30.8399025
+	34	15.13746	27.425772
+	35	15.38567	28.888629
+	36	23.76057	23.130987
+	
+}\chgwagelowed
+\pgfplotstableread{
+	month	coef	ci90
+	1	-1.542	3.8148
+	2	-2.223	5.1909
+	3	-3.169	5.7816
+	4	-0.45	5.1612
+	5	5.621	4.66785
+	6	4.575	6.52575
+	7	2.504	5.2536
+	8	-0.533	5.91195
+	9	-1.247	6.5175
+	10	1.026	6.7188
+	11	-0.404	8.1741
+	12	-3.12	8.0157
+	13	-1.93	6.8739
+	14	4.645	9.25485
+	15	8.397	8.61465
+	16	5.58	7.09005
+	17	-0.663	8.2665
+	18	-8.786	14.0481
+	19	-1.37	18.5955
+	20	-5.162	11.8503
+	21	-1.608	8.41665
+	22	-7.37	12.75285
+	23	-2.408	16.83
+	24	-1.051	16.5825
+	25	2.801	14.8467
+	26	2.417	16.01655
+	27	-0.157	16.23435
+	28	4.734	15.4506
+	29	2.337	16.533
+	30	10.72	12.94755
+	31	11.22	18.711
+	32	7.249	17.424
+	33	-10.5	15.9159
+	34	-8.817	18.8265
+	35	-5.63	19.6515
+	36	8.487	18.876
+	
+	
+}\chgwagehighed
+\pgfplotstableread{
+	month	coef	ci90
+	1	-2.905193	3.74371635
+	2	-4.789809	4.5177165
+	3	-5.388179	5.9579124
+	4	-3.890091	5.71519245
+	5	0.9804869	6.2287962
+	6	-4.388688	6.3457053
+	7	-5.653427	7.59944295
+	8	-3.486697	8.59292115
+	9	-4.620885	8.4176235
+	10	-4.715649	9.1467123
+	11	-4.00317	8.37914385
+	12	-4.872954	10.26950265
+	13	-9.322984	10.30919175
+	14	-11.49465	8.2739844
+	15	-10.47285	8.8917708
+	16	-6.769566	10.2482391
+	17	-9.545185	9.43467525
+	18	-9.125725	10.7247261
+	19	-13.67424	13.4070618
+	20	-14.14318	13.74131385
+	21	-13.76489	14.24791005
+	22	-10.47722	15.5115312
+	23	-13.04358	13.6869216
+	24	-15.06052	15.6409077
+	25	-16.09084	14.1754041
+	26	-14.57957	15.25351245
+	27	-12.16664	15.28572705
+	28	-7.871705	11.54107515
+	29	3.734279	15.37325625
+	30	9.370623	17.2668375
+	31	12.74545	14.65970385
+	32	19.65409	13.31305635
+	33	7.203316	23.7637125
+	34	7.842139	22.2820455
+	35	2.853137	24.317601
+	36	16.95375	26.8897695
+	
+}\chgwageteens
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.861	3.50295
+	2	-1.088	5.31795
+	3	-1.523	5.79645
+	4	0.552	5.67435
+	5	4.621	4.93185
+	6	4.386	6.18915
+	7	3.166	5.247
+	8	-0.45	6.2007
+	9	-0.911	5.874
+	10	1.839	5.313
+	11	-0.808	6.83925
+	12	-3.197	5.9565
+	13	-1.02	6.48945
+	14	3.323	9.12615
+	15	6.897	8.19885
+	16	4.436	6.00105
+	17	-2.701	7.88535
+	18	-9.263	13.6554
+	19	-0.641	17.919
+	20	-4.156	11.5929
+	21	-0.123	8.5107
+	22	-6.172	12.3255
+	23	0.0123	15.69975
+	24	2.228	15.05955
+	25	6.725	13.62735
+	26	5.416	15.8763
+	27	1.763	15.64035
+	28	3.837	14.63715
+	29	2.431	16.83
+	30	8.064	13.9821
+	31	9.356	20.394
+	32	5.112	18.579
+	33	-9.358	16.533
+	34	-8.884	19.239
+	35	-4.353	17.985
+	36	10.22	17.2755
+	
+}\chgwageadults
+\pgfplotstableread{
+	month	coef	ci90
+	1	-1.551457	4.20211605
+	2	-2.636073	5.59942845
+	3	-4.303305	4.79859105
+	4	-1.820231	6.86434485
+	5	-1.683813	6.044907
+	6	-2.252593	4.76323815
+	7	-2.001166	7.13800725
+	8	-3.473072	6.7801734
+	9	-1.556315	6.7578159
+	10	1.368973	7.89100785
+	11	-0.164837	8.93773485
+	12	0.3130503	9.51554835
+	13	-4.518048	9.4872426
+	14	1.559495	9.17094585
+	15	4.011428	13.0453488
+	16	8.287408	11.21801175
+	17	-0.1047253	10.77972555
+	18	-16.06941	10.63663755
+	19	-8.25201	14.7720804
+	20	-13.45068	10.84919055
+	21	-4.993804	10.52402175
+	22	-5.021663	14.055261
+	23	3.909319	16.83924
+	24	2.340503	15.46894305
+	25	7.982882	16.4385903
+	26	6.194552	17.821584
+	27	-1.504778	20.37882
+	28	2.447375	10.2775365
+	29	7.882999	11.57018115
+	30	18.12779	10.05877785
+	31	2.530015	18.0518415
+	32	6.235972	17.6682
+	33	0.564703	21.4481355
+	34	5.284746	23.8231455
+	35	10.63747	21.26289
+	36	15.06617	17.5052295
+	
+}\chgwagewmn
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.801	4.40055
+	2	-0.946	6.3723
+	3	-0.673	7.4085
+	4	0.888	6.6033
+	5	8.36	5.85255
+	6	7.426	7.3722
+	7	4.77	5.6133
+	8	1.235	6.3723
+	9	-1.527	6.8706
+	10	0.291	7.2072
+	11	-2.247	9.4875
+	12	-6.505	10.3752
+	13	-0.39	9.7746
+	14	0.43	13.9821
+	15	4.377	12.24465
+	16	-1.272	8.7483
+	17	-6.409	11.616
+	18	-3.89	15.312
+	19	1.848	19.14
+	20	0.579	12.45585
+	21	0.656	10.0617
+	22	-8.148	14.2461
+	23	-6.805	15.07605
+	24	-3.397	16.6485
+	25	-1.532	13.88805
+	26	-0.917	16.3383
+	27	0.49	15.38295
+	28	2.24	17.886
+	29	-0.186	19.2555
+	30	2.06	16.929
+	31	14.66	23.463
+	32	8.75	23.3805
+	33	-11.79	18.7935
+	34	-13.4	17.2095
+	35	-12.19	19.371
+	36	7.529	25.0635
+	
+}\chgwagemen
+\pgfplotstableread{
+	month	coef	ci90
+	1	-2.220459468	16.9108005
+	2	-1.575410436	16.46765175
+	3	-0.038516843	21.3955995
+	4	-7.286065756	19.58913
+	5	-0.124209665	25.35522
+	6	3.082569101	27.295323
+	7	-2.798878246	25.311759
+	8	-6.881649535	20.8046685
+	9	-4.922731898	19.7208825
+	10	0.577995711	22.989714
+	11	2.80737801	32.954328
+	12	1.325624901	22.284768
+	13	-10.76661813	30.405606
+	14	-4.979593145	26.2243905
+	15	-8.305395325	26.901006
+	16	-10.05710912	33.602184
+	17	1.073535731	34.0629795
+	18	11.73162187	34.894497
+	19	8.833272077	40.8394305
+	20	0.062036361	41.001741
+	21	-4.854755627	38.785395
+	22	-8.685106248	40.061835
+	23	10.28997127	35.791536
+	24	20.29854714	33.043758
+	25	19.84611483	34.818663
+	26	21.89187038	41.4053145
+	27	22.54534787	39.6456885
+	28	16.19416457	36.8107575
+	29	11.74722454	45.7307565
+	30	10.32887628	77.534094
+	31	7.744418387	81.4039875
+	32	-10.07563316	76.2811335
+	33	-18.0684889	75.517464
+	34	6.127144262	114.36579
+	35	-3.567941799	118.911573
+	36	10.6151334	142.6430775
+	
+}\chgwagepoor
+\pgfplotstableread{
+	month	coef	ci90
+	1	-1.975763117	16.9108005
+	2	-3.951279736	16.46765175
+	3	-9.338631536	21.3955995
+	4	-6.857020465	19.58913
+	5	0.527211702	25.35522
+	6	0.991076641	27.295323
+	7	3.912084516	25.311759
+	8	-2.379567347	20.8046685
+	9	-5.57828665	19.7208825
+	10	-2.109530767	22.989714
+	11	-7.617017215	32.954328
+	12	-8.974768795	22.284768
+	13	-6.054560022	30.405606
+	14	-4.654709138	26.2243905
+	15	-4.104223514	26.901006
+	16	-1.915168711	33.602184
+	17	-7.664438697	34.0629795
+	18	4.543666559	34.894497
+	19	19.91900879	40.8394305
+	20	4.727800568	41.001741
+	21	4.676828588	38.785395
+	22	0.871278272	40.061835
+	23	-3.85446983	35.791536
+	24	-1.525722005	33.043758
+	25	-5.342729147	34.818663
+	26	10.44239584	41.4053145
+	27	-3.296570828	39.6456885
+	28	-10.97870387	36.8107575
+	29	3.455655617	45.7307565
+	30	18.18891988	77.534094
+	31	33.60287062	81.4039875
+	32	27.8109674	76.2811335
+	33	9.410249979	75.517464
+	34	-4.280717426	114.36579
+	35	3.218248558	118.911573
+	36	60.47201493	142.6430775
+	
+}\chgwagerich
+
+
+
+\begin{figure}[!htbp]
+	\centering
+	\caption{Effect of a 1\% Minimum Wage Increase on Wages}
+	\begin{subfigure}{0.5\textwidth}
+		\subcaption{Education $<$ High school}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ylabel=\textcent,
+		xlabel= Months,
+		xmin=-.1,
+		xmax=32.2,
+		ymin=-30,
+		ymax=30,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [color=blue,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\chgwagelowed;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:chg_wagelowed}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.5\textwidth}
+		\subcaption{Education $\geq$ High school}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		xmin=-.1,
+		xmax=32.2,
+		ymin=-30,
+		ymax=30,
+		xlabel= Months,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		
+		\addplot [color=blue,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\chgwagehighed;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:chg_wagehighed}
+	\end{subfigure}\\
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Women}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ylabel=\textcent,
+		xlabel= Months,
+		xmin=-.1,
+		xmax=32.2,
+		ymin=-30,
+		ymax=30,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		\addplot [color=blue,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\chgwagewmn;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}	
+		\label{fig:chg_wagelwwmn}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Men}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		xlabel= Months,
+		xmin=-.1,
+		xmax=32.2,
+		ymin=-30,
+		ymax=30,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		\addplot [color=blue,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\chgwagemen;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:chg_wagelwmen}
+	\end{subfigure}\\
+	\small{All graphs include 90\% confidence intervals around the estimated coefficients.}
+	\label{fig:chg_wageresults}
+\end{figure}
+
+
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.5391482	0.59365416
+	2	-0.8684665	0.773301045
+	3	-0.8365181	0.83867619
+	4	-0.4553138	0.972536565
+	5	-1.586832	0.79357113
+	6	-0.9499786	0.6049032
+	7	-0.7729459	1.00745601
+	8	-0.4944378	1.48863561
+	9	-0.01446743	1.30969443
+	10	-0.5008343	1.090600995
+	11	-0.4416154	1.183428675
+	12	-0.02681686	1.23180849
+	13	-0.05111887	0.949327665
+	14	-1.366962	1.170131985
+	15	-0.6658193	1.22894904
+	16	-0.6121599	1.18426803
+	17	-1.228337	1.38914721
+	18	-0.6958594	1.59031884
+	19	-1.568948	1.69686495
+	20	-1.723631	1.220201235
+	21	-1.220847	1.47663219
+	22	-1.091474	1.3967283
+	23	-1.062612	1.621113285
+	24	-0.525071	1.79892735
+	25	-0.5901825	1.8209928
+	26	-0.3623827	1.95258525
+	27	-0.4629004	1.99819125
+	28	-0.866697	1.63332114
+	29	1.30198	2.66248455
+	30	0.8179457	2.4213156
+	31	-0.09311006	2.06283495
+	32	1.813842	2.53991925
+	33	1.976161	4.10852475
+	34	2.272599	4.1262309
+	35	1.224462	4.3604418
+	36	1.387002	3.3746625
+	
+}\chghrslowed
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.6907	0.342045
+	2	-0.3609	0.36498
+	3	-0.5055	0.524535
+	4	-0.3833	0.516285
+	5	0.1137	0.548625
+	6	-0.2101	0.51546
+	7	-0.2015	0.71511
+	8	-0.3935	0.741675
+	9	-0.7754	0.55308
+	10	-0.5488	0.549945
+	11	-0.9112	0.52536
+	12	-0.2589	0.504735
+	13	-0.5799	0.614625
+	14	-0.6887	0.62898
+	15	-0.4918	0.56133
+	16	-0.1493	0.71412
+	17	0.0231	0.795795
+	18	-0.2601	0.657855
+	19	-0.7957	0.809655
+	20	-0.6595	0.775665
+	21	-0.1646	0.952875
+	22	-1.009	0.757185
+	23	-0.6505	0.790185
+	24	-0.1654	0.85272
+	25	-0.0526	1.066725
+	26	-0.4835	1.02069
+	27	-0.7093	0.98538
+	28	-0.1933	1.406625
+	29	0.2869	1.36884
+	30	1.171	1.28964
+	31	0.6293	1.53219
+	32	0.7317	1.450515
+	33	0.1959	2.0196
+	34	0.7548	1.7919
+	35	-0.3642	2.02125
+	36	1.428	1.89915
+	
+}\chghrshighed
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.3853127	0.632748435
+	2	0.1644679	0.61997034
+	3	-0.1390577	0.905285865
+	4	0.354861	0.886114845
+	5	0.07804192	1.09087737
+	6	-0.1968497	1.165810965
+	7	-0.6450226	0.906249465
+	8	-0.6086131	1.003161885
+	9	0.2133815	0.928271025
+	10	-0.1388126	1.203972
+	11	-0.1215915	1.07129682
+	12	-0.7631214	0.97579218
+	13	-1.232216	1.125691545
+	14	-1.738894	1.231536405
+	15	-1.707479	1.05431766
+	16	-0.2226765	1.382359275
+	17	-0.1282879	1.355219085
+	18	-0.4246518	1.157427645
+	19	-1.271877	1.320253275
+	20	-0.8744458	1.27227705
+	21	-1.108927	1.338662655
+	22	-0.7086951	1.072548015
+	23	-0.7920995	1.33984884
+	24	-1.638508	1.29390261
+	25	-1.806266	1.48898541
+	26	-1.695977	1.7637708
+	27	-2.719894	2.11228215
+	28	-2.732881	1.7192109
+	29	-0.1757516	2.1769374
+	30	0.2003862	2.3057694
+	31	-0.2597727	2.08440705
+	32	1.795689	2.07872115
+	33	1.344821	2.3896158
+	34	3.021694	2.7724917
+	35	1.368489	2.3327634
+	36	0.515547	1.661847
+	
+}\chghrsteens
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.682	0.344355
+	2	-0.5309	0.41151
+	3	-0.6071	0.527175
+	4	-0.5079	0.515625
+	5	-0.286	0.54219
+	6	-0.3782	0.51909
+	7	-0.2281	0.687225
+	8	-0.348	0.824505
+	9	-0.7451	0.61875
+	10	-0.5783	0.53097
+	11	-0.9136	0.616275
+	12	-0.07235	0.5016
+	13	-0.3156	0.585585
+	14	-0.5831	0.662805
+	15	-0.2656	0.647295
+	16	-0.2122	0.767415
+	17	-0.1726	0.85173
+	18	-0.2658	0.703725
+	19	-0.7998	0.87252
+	20	-0.7705	0.825165
+	21	-0.1494	1.07613
+	22	-1.002	0.82533
+	23	-0.6463	0.909975
+	24	0.1224	0.91839
+	25	0.2436	1.02828
+	26	-0.1712	0.990495
+	27	-0.2475	0.940005
+	28	0.1508	1.27413
+	29	0.6482	1.44606
+	30	1.33	1.405305
+	31	0.7084	1.486485
+	32	0.7162	1.490445
+	33	0.208	2.0757
+	34	0.483	2.1219
+	35	-0.4439	2.26215
+	36	1.712	2.05755
+	
+}\chghrsadults
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.5912474	0.5381244
+	2	-0.3665068	0.589475535
+	3	-0.3953354	0.542434365
+	4	-0.2280743	0.576847425
+	5	-0.724053	0.69072762
+	6	-0.8979745	0.702407475
+	7	-0.583893	0.761166285
+	8	-0.5969502	0.82027737
+	9	-0.8577328	0.7501659
+	10	-0.6001919	0.898983525
+	11	-1.079598	0.78295305
+	12	-0.1702195	0.84438651
+	13	-0.4303652	0.75830964
+	14	-0.7563595	0.75610095
+	15	-0.2149058	0.7434306
+	16	-0.0208986	0.91734489
+	17	-0.270034	1.09932537
+	18	-0.03034309	0.934773015
+	19	-1.227008	0.811385685
+	20	-0.9663708	0.80153337
+	21	-0.3677667	0.89931633
+	22	-0.3756378	0.73585215
+	23	0.3959798	1.042213755
+	24	1.418652	1.028004945
+	25	1.106728	1.1509905
+	26	0.9109493	1.357776915
+	27	0.7226743	1.16234316
+	28	0.6950761	1.31423226
+	29	1.032334	1.266990615
+	30	1.92423	1.37770083
+	31	0.9390368	1.9968663
+	32	1.116119	2.03987025
+	33	1.326169	1.549891035
+	34	2.771184	2.07580725
+	35	1.560397	2.23063665
+	36	2.057968	2.0035323
+	
+}\chghrswmn
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.6943	0.43098
+	2	-0.4779	0.55836
+	3	-0.6591	0.75504
+	4	-0.5181	0.759165
+	5	0.1303	0.66792
+	6	0.08016	0.62403
+	7	-0.1104	0.720225
+	8	-0.2619	0.89232
+	9	-0.4234	0.738375
+	10	-0.4845	0.78243
+	11	-0.5997	0.74019
+	12	-0.2359	0.684255
+	13	-0.5298	0.93489
+	14	-0.8513	0.93885
+	15	-0.761	0.74547
+	16	-0.3991	0.874995
+	17	-0.1427	0.90123
+	18	-0.5289	1.120845
+	19	-0.6712	1.384185
+	20	-0.6861	1.10649
+	21	-0.2853	1.1121
+	22	-1.534	1.16853
+	23	-1.61	1.166055
+	24	-1.604	1.08834
+	25	-1.156	1.200375
+	26	-1.514	1.173645
+	27	-1.516	1.30515
+	28	-0.8784	1.52988
+	29	0.1999	1.8546
+	30	0.5659	1.82655
+	31	0.1262	1.9668
+	32	0.7312	1.88265
+	33	-0.3099	2.63175
+	34	-0.3067	2.19615
+	35	-1.31	2.4255
+	36	0.933	2.54265
+	
+}\chghrsmen
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.362639139	1.48189866
+	2	0.001942747	2.1251736
+	3	0.034388635	1.7552799
+	4	0.060971208	1.8249825
+	5	-0.117784669	2.33215125
+	6	0.196953161	1.62024522
+	7	0.259381288	1.415690595
+	8	0.318202566	2.69032995
+	9	0.368732685	2.48001765
+	10	0.603158547	2.67066195
+	11	0.205803557	1.8984042
+	12	0.068933992	2.3786532
+	13	-0.471690309	2.28807975
+	14	0.163310755	3.0227835
+	15	0.523664745	2.20067595
+	16	1.130607784	2.58842595
+	17	0.073423532	2.067516
+	18	-0.363841366	2.8327332
+	19	-1.05763376	2.06919075
+	20	-2.134932827	2.79866235
+	21	-0.94978424	2.74876635
+	22	-1.156267696	2.19571935
+	23	0.128011727	2.36301945
+	24	0.268498335	2.7395511
+	25	-0.199866225	2.8316178
+	26	-0.058113923	3.2296209
+	27	-0.989725287	3.5817606
+	28	0.058886825	3.26841735
+	29	0.557078939	3.35119455
+	30	1.57051005	4.2794631
+	31	1.758326373	4.00488825
+	32	1.33557236	4.7431659
+	33	0.5952585	7.64398635
+	34	1.833345545	9.5305221
+	35	4.908788249	9.25372305
+	36	6.182874225	13.87774245
+	
+}\chghrslwpoor
+\pgfplotstableread{
+	month	coef	ci90
+	1	-0.75597199	1.48189866
+	2	-0.446694785	2.1251736
+	3	-0.841888838	1.7552799
+	4	-0.009139257	1.8249825
+	5	0.12162095	2.33215125
+	6	0.259681401	1.62024522
+	7	0.600220158	1.415690595
+	8	0.056311336	2.69032995
+	9	-0.602612627	2.48001765
+	10	-0.469041342	2.67066195
+	11	-1.265681256	1.8984042
+	12	-0.662013689	2.3786532
+	13	-0.632230955	2.28807975
+	14	-0.325503274	3.0227835
+	15	-0.230677891	2.20067595
+	16	-0.044100037	2.58842595
+	17	-0.253609834	2.067516
+	18	0.275675854	2.8327332
+	19	-0.701584035	2.06919075
+	20	-1.290895751	2.79866235
+	21	-0.441625973	2.74876635
+	22	-1.653679164	2.19571935
+	23	-1.004535574	2.36301945
+	24	-0.176997825	2.7395511
+	25	-0.156986496	2.8316178
+	26	-0.898844291	3.2296209
+	27	-2.706733129	3.5817606
+	28	-1.277022983	3.26841735
+	29	-0.863151909	3.35119455
+	30	2.432734017	4.2794631
+	31	1.650362375	4.00488825
+	32	2.172169344	4.7431659
+	33	2.9818746	7.64398635
+	34	0.747918826	9.5305221
+	35	2.518865443	9.25372305
+	36	5.894694671	13.87774245
+	
+}\chghrslwrich
+
+\begin{figure}[!htbp]
+	\centering
+	\caption{Effect of a 1\% Minimum Wage Increase on Hours}
+	\begin{subfigure}{0.5\textwidth}
+		\subcaption{Education $<$ High school}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ylabel=Hours,
+		xlabel= Months,
+		xmin=-.1,
+		xmax=32.2,
+		ymin=-4,
+		ymax=6,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		\addplot [color=red,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\chghrslowed;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:chg_hrslowed}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.5\textwidth}
+		\subcaption{Education $\geq$ High school}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		xlabel= Months,
+		xmin=-.1,
+		xmax=32.2,
+		ymin=-4,
+		ymax=6,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		\addplot [color=red,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\chghrshighed;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:chg_hrshighed}
+	\end{subfigure}\\
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Women}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		ylabel=Hours,
+		xlabel= Months,
+		xmin=-.1,
+		xmax=32.2,
+		ymin=-4,
+		ymax=6,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		\addplot [color=red,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\chghrswmn;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:chg_hrswmn}
+	\end{subfigure}\hspace*{\fill}
+	\begin{subfigure}{0.5\textwidth}
+		\caption{Men}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=.5\textwidth,
+		xlabel= Months,
+		xmin=-.1,
+		xmax=32.2,
+		ymin=-4,
+		ymax=6,
+		%scaled y ticks=false,
+		axis x line=bottom,
+		axis y line=left,
+		every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+		legend style={at={(.5,1)},anchor=north,legend columns=-1},
+		xtick={4,8,...,32},
+		%symbolic x coords={1992,1994,1996,1998,2000,2003,2006,2009,2011,2013,2015},
+		major x tick style = {opacity=0},
+		enlarge x limits=false,
+		minor x tick num = 0,
+		minor tick length=3ex,
+		]
+		\addplot [color=red,only marks,mark=o,thick] plot[error bars/.cd,y dir=both,y explicit] table[x=month,y=coef,y error=ci90]\chghrsmen;
+		\addplot [draw=black] (1,0)--(42,0);
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:chg_hrsmen}
+	\end{subfigure}\\
+	\small{All graphs include 90\% confidence intervals around the estimated coefficients.}
+	\label{fig:chg_hrsresults}
+\end{figure}
+
+\begin{table}
+	\centering
+	\caption{Regressions with Inverse propensity score weighting}
+	% Table generated by Excel2LaTeX from sheet 'robustness_10219'
+	\begin{tabular}{rccccc}
+		
+		&      Spell &  Intensity &       Quit &  Next Wage & Next Hours \\
+		\hline
+		\hline
+		$\ln(imw)$ &   -0.187** &    -0.135* &    2.251** &     -0.105 &   -0.491** \\
+		
+		&     (0.070) &    (0.057) &    (0.787) &    (0.092) &    (0.179) \\
+		
+		$\Delta mw$ &   0.816*** &  -0.001 &     1.886* &     0.0342 &   -0.787** \\
+		
+		&    (0.201) &    (0.081) &    (0.948) &    (0.104) &    (0.257) \\
+		
+		Intercept &   1.358*** &   0.768*** &    -3.953* &   1.223*** &   3.148*** \\
+		
+		&    (0.165) &    (0.145) &    (1.575) &    (0.199) &    (0.262) \\\hdashline
+		
+		Observations &      43,939 &      43,936 &      43,936 &      37,204 &      34,028 \\
+		\hline
+		\multicolumn{6}{p{.8\textwidth}}{{\footnotesize Significant at: *** 0.1\% ** 1\% * 5\% $^+$ 10\%. For spells we use an accelerated failure time model, for quitting we use a logit model, and for all other outcomes we use a linear model. All models control for state and time (month-year) fixed effects, education level, sex, race, age, age$^2$, unemployment rate, and number of children in the household. We exclude spells greater than 52 weeks, equal to one week, and spells associated with individuals who move. Standard errors are clustered at the state level }}\\
+	\end{tabular}  
+	\label{tab:robust_wips}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{Regressions with Census Division time fixed effects}
+	% Table generated by Excel2LaTeX from sheet 'robustness_10219'
+	\begin{tabular}{lccccc}
+		
+		&  (1) &  (2) &   (3) &      (4)&      (5) \\
+		&   Spell &  Intensity &   Quit &       Next Wage &      Next Hours \\
+		\hline
+		\hline
+		ln(imw) &   -0.299 &   -0.256*** &  4.44*** &     -0.022 &    -0.127 \\
+		
+		&     (0.190) &    (0.054) &    (1.191) &    (0.066) &    (0.128) \\
+		
+		$\Delta mw$ &   1.331*** & -0.904*** &   14.35*** &  -0.191 &   -0.423 \\
+		
+		&     (0.427) &    (0.167) &    (2.232) &    (0.103) &    (0.220) \\\hdashline
+		
+		Observations &  1,482,022 & 45,724 & 45,724 &     33,195 &     30,423 \\
+		\hline
+		\multicolumn{6}{p{.8\textwidth}}{{\footnotesize Significant at: *** 0.1\% ** 1\% * 5\% $^+$ 10\%. For spells we use an accelerated failure time model, for quitting we use a logit model, and for all other outcomes we use a linear model. All models control for state and time (month-year) fixed effects, education level, sex, race, age, age$^2$, unemployment rate, and number of children in the household. We exclude spells greater than 52 weeks, equal to one week, and spells associated with individuals who move. Standard errors are clustered at the state level }}\\
+	\end{tabular}  
+	\label{tab:robust_div}
+\end{table}
+
+
+\begin{table}
+	\centering
+	\caption{Regressions with Federal minimum wage change interaction}
+	% Table generated by Excel2LaTeX from sheet 'robustness_10219'
+	\begin{tabular}{lccccc}
+		
+		&  (1) &  (2) &   (3) &      (4)&      (5) \\
+		&   Spell &  Intensity &   Quit &       Next Wage &      Next Hours \\
+		\hline
+		\hline
+		$\Delta mw$ &    1.315***& -0.915*** &   11.65*** &   -0.085 &   -0.514 \\
+		
+		&     (0.491) &    (0.144) &     (1.268) &    (0.106) &    (0.302) \\
+		
+		$\times$Federal &    -0.407 &    0.460 &   -1.688 &    0.208 &   0.797 \\
+		
+		&    (0.785) &    (0.240) &    (2.274) &    (0.0326) &    (0.686) \\\hdashline
+		
+		Observations &  1,481,981 & 50,633 & 50,633 &     37,204 &     34,028 \\
+		\hline
+		\multicolumn{6}{p{.8\textwidth}}{{\footnotesize Significant at: *** 0.1\% ** 1\% * 5\% $^+$ 10\%. For spells we use an accelerated failure time model, for quitting we use a logit model, and for all other outcomes we use a linear model. All models control for state and time (month-year) fixed effects, education level, sex, race, age, age$^2$, unemployment rate, and number of children in the household. We exclude spells greater than 52 weeks, equal to one week, and spells associated with individuals who move. Standard errors are clustered at the state level }}\\
+	\end{tabular}  
+	
+	\label{tab:robust_fed}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{Regressions for Quitting Search defined around 10 weeks}
+	% Table generated by Excel2LaTeX from sheet 'robustness_10219'
+	\begin{tabular}{rrccc}
+		
+		&            &        (1) &        (2) &        (3) \\
+		\hline
+		\hline
+		\multicolumn{ 2}{l}{ln(imw)} &  2.114***&1.926***&2.413***\\
+		
+		&		&(0.522)&(0.522)&(0.545)\\
+		
+		\multicolumn{ 2}{l}{{\bf ln(imw)$\times$:}} &            &            &          \\
+		
+		\multicolumn{ 2}{r}{Education$<$High school} &            &     0.216 &            \\
+		
+		&            &            &    (0.276) &            \\
+		
+		\multicolumn{ 2}{c}{Women} &            &            &   -0.564** \\
+		
+		&            &            &            &     (0.202) \\
+		&&&&\\
+		
+		\multicolumn{ 2}{l}{\bf $\Delta mw$} &  12.07***&12.00***&11.02*** \\
+		
+		&		&(1.150)&(1.129)&(1.062)\\
+		
+		\multicolumn{ 2}{l}{$\mathbf{\Delta mw \times:}$} &            &            &           \\
+		
+		\multicolumn{ 2}{r}{Education$<$High school} &            &   -1.291 &            \\
+		
+		&            &            &    (0.882) &            \\
+		
+		\multicolumn{ 2}{c}{Women} &            &            &    2.235$^+$ \\
+		
+		&            &            &            &     (1.209) \\\hdashline
+		
+		\multicolumn{ 2}{l}{Observations} &                                    \multicolumn{ 3}{c}{50,640} \\
+		\hline
+		\multicolumn{5}{p{.6\textwidth}}{{\footnotesize Significant at: *** 0.1\% ** 1\% * 5\% $^+$ 10\%. For spells we use an accelerated failure time model, for quitting we use a logit model, and for all other outcomes we use a linear model. All models control for state and time (month-year) fixed effects, education level, sex, race, age, age$^2$, unemployment rate, and number of children in the household. We exclude spells greater than 52 weeks, equal to one week, and spells associated with individuals who move. Standard errors are clustered at the state level }}\\
+	\end{tabular}  
+	\label{tab:robust_qt10}
+\end{table}
+
+
+\end{document}
